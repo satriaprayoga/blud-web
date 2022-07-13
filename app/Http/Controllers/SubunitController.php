@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Subunit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SubunitController extends Controller
 {
@@ -14,7 +15,8 @@ class SubunitController extends Controller
      */
     public function index()
     {
-        //
+        $subunits=Subunit::all();
+        return response()->json(['subunits'=>$subunits]);
     }
 
     /**
@@ -25,7 +27,12 @@ class SubunitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated=$this->subunitValidation($request);
+        if($validated->fails()){
+            return response()->json(['errors'=>$validated->errors()],422);
+        }
+        $subunit=Subunit::create($request->all());
+        return response()->json(['subunit'=>$subunit]);
     }
 
     /**
@@ -34,9 +41,13 @@ class SubunitController extends Controller
      * @param  \App\Models\Subunit  $subunit
      * @return \Illuminate\Http\Response
      */
-    public function show(Subunit $subunit)
+    public function show($id)
     {
-        //
+        $subunit=Subunit::find($id);
+        if($subunit==null){
+            return response()->json(['message'=>'Sub Unit tidak ditemukan'],404);
+        }
+        return response()->json(['subunit'=>$subunit]);
     }
 
     /**
@@ -57,8 +68,31 @@ class SubunitController extends Controller
      * @param  \App\Models\Subunit  $subunit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subunit $subunit)
+    public function destroy($id)
     {
-        //
+        $subunit=SubUnit::find($id);
+        if($subunit==null){
+            return response()->json(['message'=>'Sub Unit tidak ditemukan'],404);
+        }
+        $subunit->destroy();
+        return response()->json(['message'=>'Sub Unit berhasil dihapus'],400);
+    }
+
+    protected function subunitValidation(Request $request){
+        return Validator::make($request->all(),[
+            'nama'=>'required|string|max:255',
+            'kode'=>'required|string|max:255',
+            'singkatan'=>'required|string|max:255',
+            'nama_bend'=>'required|string|max:255',
+            'nip_bend'=>'required|string|max:255',
+            'jabatan_bend'=>'required|string|max:255',
+            'nama_sptjm'=>'required|string|max:255',
+            'nip_sptjm'=>'required|string|max:255',
+            'nama_sp2b'=>'required|string|max:255',
+            'nip_sp2b'=>'required|string|max:255',
+            'jabatan_sp2b'=>'required|string|max:255',
+            'unit_id'=>'required|integer'
+
+        ]);
     }
 }

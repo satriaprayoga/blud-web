@@ -98,15 +98,20 @@ class UnitController extends Controller
         $unit=Unit::find($id);
         if($unit==null){
             return response()->json(['message'=>'Unit tidak ditemukan'],404);
+        }else{
+            if($unit->subunits->isNotEmpty()){
+                return response()->json(['message'=>'Unit memiliki Sub Unit'],404);
+            }
+            $unit->destroy();
+            return response()->json(['message'=>'Unit berhasil dihapus'],400);
         }
-        $unit->destroy();
-        return response()->json(['message'=>'Unit berhasil dihapus'],400);
+        
     }
 
     protected function unitValidator(Request $request){
         return Validator::make($request->all(),[
             'nama'=>'required|string|max:255',
-            'kode'=>'required|string|max:255',
+            'kode'=>'required|string|max:255|unique:units',
             'singkatan'=>'required|string|max:255',
             'lokasi'=>'required|string|max:255',
             'nama_kepala'=>'required|string|max:255',
