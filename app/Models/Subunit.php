@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Unit extends Model
+class Subunit extends Model
 {
     use HasFactory;
-    
-    public function subunits(){
-        return $this->hasMany(Subunit::class);
+
+    public function unit(){
+        return $this->belongsTo(Unit::class);
     }
 }
