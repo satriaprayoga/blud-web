@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Account extends Model
 {
     use HasFactory;
+
+    public function children(){
+        return $this->hasMany(Account::class,'parent_kode','kode');
+    }
 }

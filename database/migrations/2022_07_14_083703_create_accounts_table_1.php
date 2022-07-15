@@ -15,11 +15,14 @@ return new class extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
-            $table->string('kode');
+            $table->string('kode')->unique();
             $table->string('name');
             $table->boolean('root');
-            $table->string('type');
-            $table->float('float',13,2);
+            $table->string('report');
+            $table->integer('parent_kode')->nullable(true);
+            $table->string('type');//belanja or pendapatan
+            $table->string('group');//induk, kelompok, rincian, objek
+            $table->float('nilai',13,2)->default(0.0);
             $table->timestamps();
         });
     }
