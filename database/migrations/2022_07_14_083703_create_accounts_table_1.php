@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('name');
             $table->boolean('root');
             $table->string('report');
-            $table->integer('parent_kode')->nullable(true);
             $table->string('type');//belanja or pendapatan
             $table->string('group');//induk, kelompok, rincian, objek
             $table->float('nilai',13,2)->default(0.0);
+            $table->integer('parent_id')->nullable();
             $table->timestamps();
         });
     }

@@ -37,6 +37,7 @@ class AccountController extends Controller
             return response()->json(['message'=>'Akun tidak ditemukan'],404);
        }
        $account->children;
+       $account->parent;
        return response()->json(['acccount'=>$account]);
        
     }

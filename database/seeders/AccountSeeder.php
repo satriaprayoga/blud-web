@@ -16,6 +16,36 @@ class AccountSeeder extends Seeder
     public function run()
     {
         Account::insert([
+            'kode'=>'4',
+            'name'=>'PENDAPATAN',
+            'root'=>true,
+            'report'=>'LRA',
+            'type'=>'pendapatan',
+            'group'=>'induk',
+            'nilai'=>0.00
+        ]);
+        Account::insert([
+            'kode'=>'5',
+            'name'=>'BELANJA',
+            'root'=>false,
+            'report'=>'LRA',
+            'type'=>'belanja',
+            'group'=>'induk',
+            'nilai'=>0.00
+
+        ]);
+        Account::insert([
+            'kode'=>'51',
+            'name'=>'BELANJA OPERASIONAL',
+            'root'=>false,
+            'report'=>'LRA',
+            'type'=>'belanja',
+            'group'=>'kelompok',
+            'nilai'=>0.00,
+            'parent_id'=>2
+
+        ]);
+        Account::insert([
             'kode'=>'511',
             'name'=>'BELANJA PEGAWAI',
             'root'=>false,
@@ -23,7 +53,7 @@ class AccountSeeder extends Seeder
             'type'=>'belanja',
             'group'=>'jenis',
             'nilai'=>0.00,
-            'parent_kode'=>'51'
+            'parent_id'=>3
 
         ]);
         Account::insert([
@@ -34,7 +64,7 @@ class AccountSeeder extends Seeder
             'type'=>'belanja',
             'group'=>'jenis',
             'nilai'=>0.00,
-            'parent_kode'=>'51'
+            'parent_id'=>3
 
         ]);
        
