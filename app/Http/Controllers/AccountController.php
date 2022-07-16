@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Account;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AccountController extends Controller
 {
     public function index()
     {
-        $accounts=Account::all();
-        return response()->json(['accounts'=>$accounts]);
+        $accounts = Account::all();
+        return response()->json(['accounts' => $accounts]);
     }
 
     /**
@@ -21,7 +22,28 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-       
+        $validated = $this->accountValidator($request);
+        if ($validated->fails()) {
+            return response()->json([
+                'errors' => $validated->errors()
+            ], 422);
+        }
+        $account=Account::create(
+            [
+                'kode'=>$request->parentKode.$request->kode,
+                'name'=>$request->name,
+                'root'=>$request->root,
+                'report'=>$request->report,
+                'type'=>$request->type,
+                'group'=>$request->jenis,
+                'nilai'=>0.00,
+                'parent_id'=>$request->parent_id
+            ]
+        );
+        return response()->json([
+            'account'=>$account,
+            'message'=>'Akun baru berhasil ditambah'
+        ],200);
     }
 
     /**
@@ -32,14 +54,13 @@ class AccountController extends Controller
      */
     public function show($id)
     {
-       $account=Account::find($id);
-       if($account==null){
-            return response()->json(['message'=>'Akun tidak ditemukan'],404);
-       }
-       $account->children;
-       $account->parent;
-       return response()->json(['acccount'=>$account]);
-       
+        $account = Account::find($id);
+        if ($account == null) {
+            return response()->json(['message' => 'Akun tidak ditemukan'], 404);
+        }
+        $account->children;
+        $account->parent;
+        return response()->json(['acccount' => $account]);
     }
 
     /**
@@ -51,8 +72,17 @@ class AccountController extends Controller
      */
     public function update(Request $request,$id)
     {
-        
-        
+        $validated=$this->accountValidator($request);
+        if($validated->fails()){
+            return response()->json([
+                'errors'=>$validated->errors()
+            ],422);
+        }
+        $account=Account::where('id',$id)->firstOrFails();
+        $account->name=$request->name;
+        $account->kode=$request->kode;
+        $account=$account->save();
+        return response()->json(["account"=>$account]);
     }
 
     /**
@@ -63,11 +93,22 @@ class AccountController extends Controller
      */
     public function destroy($id)
     {
-       
-        
+        $account=Account::where('id',$id)->firstOrFails();
+        if(!empty($account->children)){
+            return response()->json([
+                'error'=>'Akun memilik sub akun, hapus terlebih dahulu'
+            ],422); 
+        }
+        Account::destroy($id);
+        return response()->json(['message'=>'Akun berhasil di hapus']);
     }
 
-   
+    protected function accountValidator(Request $request)
+    {
+        return Validator::make($request->only(['kode','name']), [
+            'kode' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
 
-
+        ]);
+    }
 }
