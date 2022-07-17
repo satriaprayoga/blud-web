@@ -93,7 +93,7 @@ class AccountController extends Controller
      */
     public function destroy($id)
     {
-        $account=Account::where('id',$id)->firstOrFails();
+        $account=Account::where('id',$id)->firstOrFail();
         if(!empty($account->children)){
             return response()->json([
                 'error'=>'Akun memilik sub akun, hapus terlebih dahulu'
