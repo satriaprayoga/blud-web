@@ -1,26 +1,33 @@
-
-
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { useSelector } from 'react-redux';
 
 import { ThemeProvider } from '@mui/material/styles';
-import { StyledEngineProvider, CssBaseline } from '@mui/material';
-import { useSelector, Provider } from 'react-redux'
-import theme from './themes';
-import { store } from './store';
+import { CssBaseline, StyledEngineProvider } from '@mui/material';
 
+// routing
+import Routes from './routes';
+
+// defaultTheme
+import themes from './themes';
+
+// project imports
+import NavigationScroll from './layout/NavigationScroll';
+
+// ==============================|| APP ||============================== //
 
 const Main = () => {
     const customization = useSelector((state) => state.customization);
+
     return (
         <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={theme(customization)}>
-                <CssBaseline/>
-                <h1>Hai ini apa</h1>
+            <ThemeProvider theme={themes(customization)}>
+                <CssBaseline />
+                <NavigationScroll>
+                    <Routes />
+                </NavigationScroll>
             </ThemeProvider>
         </StyledEngineProvider>
-    )
-}
+    );
+};
 
 export default Main;
 
