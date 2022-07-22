@@ -1,13 +1,19 @@
-import { useSelector } from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider,useSelector } from 'react-redux';
 
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, StyledEngineProvider } from '@mui/material';
 
 // routing
-import Routes from './routes';
+import { BrowserRouter } from 'react-router-dom';
 
 // defaultTheme
 import themes from './themes';
+
+import {store} from './store';
+
+import Routes from './routes';
 
 // project imports
 import NavigationScroll from './layout/NavigationScroll';
@@ -35,7 +41,9 @@ export default Main;
 if (document.getElementById('root')) {
     ReactDOM.render(
         <Provider store={store}>
-            <Main/>
+           <BrowserRouter>
+                <Main/>
+           </BrowserRouter>
         </Provider>
         , document.getElementById('root'));
 }
