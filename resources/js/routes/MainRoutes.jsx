@@ -4,6 +4,9 @@ import React from 'react';
 import MainLayout from '../layout/MainLayout';
 import Loadable from '../ui-component/Loadable';
 
+// setting routing
+const SettingsUnit= Loadable(React.lazy(()=>import('../views/units/Units')));
+
 // dashboard routing
 const DashboardDefault = Loadable(React.lazy(() => import('../views/dashboard/Default')));
 
@@ -35,6 +38,10 @@ const MainRoutes = {
                     element: <DashboardDefault />
                 }
             ]
+        },
+        {
+            path:'units',
+            element:<SettingsUnit/>
         },
         {
             path: 'utils',
