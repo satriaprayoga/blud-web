@@ -107,7 +107,7 @@ const Units = props => {
 
   return (
     <>
-    <MainCard title="Unit Kerja" secondary={<FormAction title="Tambah Unit" titleDelete="Hapus Unit" titleEdit="Edit Unit" icon={<IconPlus/>} iconDelete={<IconTrash/>} iconEdit={<IconEdit/>} handleClick={handleClick}/>}>
+    <MainCard title="Unit Kerja" secondary={<FormAction title="Tambah Unit" icon={<IconPlus/>} handleClick={handleClick}/>}>
         <UnitsData rows={units}/>
     </MainCard>
     
@@ -115,12 +115,12 @@ const Units = props => {
       <DialogTitle>Tambah Unit Kerja</DialogTitle>
       <DialogContent>
         <TextField autoFocus margin='dense' id='nama' label='Nama Unit' fullWidth variant='standard'/>
-        <TextField autoFocus margin='dense' id='kode' label='Kode Unit' fullWidth variant='standard'/>
-        <TextField autoFocus margin='dense' id='singkatan' label='Singkatan' fullWidth variant='standard'/>
-        <TextField autoFocus margin='dense' id='lokasi' label='Lokasi' fullWidth variant='standard'/>
-        <TextField autoFocus margin='dense' id='nama_kepala' label='Nama Kepala Unit' fullWidth variant='standard'/>
-        <TextField autoFocus margin='dense' id='nip_kepala' label='NIP Kepala Unit' fullWidth variant='standard'/>
-        <TextField autoFocus margin='dense' id='jabatan_kepala' label='Jabatan Kepala Unit' fullWidth variant='standard'/>
+        <TextField margin='dense' id='kode' label='Kode Unit' fullWidth variant='standard'/>
+        <TextField margin='dense' id='singkatan' label='Singkatan' fullWidth variant='standard'/>
+        <TextField margin='dense' id='lokasi' label='Lokasi' fullWidth variant='standard'/>
+        <TextField margin='dense' id='nama_kepala' label='Nama Kepala Unit' fullWidth variant='standard'/>
+        <TextField margin='dense' id='nip_kepala' label='NIP Kepala Unit' fullWidth variant='standard'/>
+        <TextField margin='dense' id='jabatan_kepala' label='Jabatan Kepala Unit' fullWidth variant='standard'/>
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Batal</Button>
