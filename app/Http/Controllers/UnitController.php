@@ -58,7 +58,8 @@ class UnitController extends Controller
         if($unit==null){
             return response()->json(['message'=>'Unit tidak ditemukan'],404);
         }
-        return response()->json(['unit'=>$unit]);
+        $subunits=$unit->subunits();
+        return response()->json(['unit'=>$unit,'subunits'=>$subunits]);
     }
 
     /**

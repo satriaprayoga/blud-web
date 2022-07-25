@@ -6,6 +6,7 @@ import Loadable from '../ui-component/Loadable';
 
 // setting routing
 const SettingsUnit= Loadable(React.lazy(()=>import('../views/units/Units')));
+const ViewUnit=Loadable(React.lazy(()=>import('../views/units/UnitsDetails')));
 
 // dashboard routing
 const DashboardDefault = Loadable(React.lazy(() => import('../views/dashboard/Default')));
@@ -41,7 +42,16 @@ const MainRoutes = {
         },
         {
             path:'units',
-            element:<SettingsUnit/>
+            children:[
+                {
+                    path:"",
+                    element:<SettingsUnit/>,
+                },
+                {
+                    path:":id",
+                    element:<ViewUnit/>
+                }
+            ]
         },
         {
             path: 'utils',

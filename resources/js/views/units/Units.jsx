@@ -4,7 +4,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import MainCard from '../../ui-component/cards/MainCard';
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
 import FormAction from '../../ui-component/cards/FormAction';
-import { IconPlus } from '@tabler/icons';
+import { IconPlus,IconTrash, IconEdit } from '@tabler/icons';
 import { useState } from 'react';
 import Loader from '../../ui-component/Loader';
 import { useNavigate } from 'react-router';
@@ -93,7 +93,7 @@ const Units = props => {
       console.log(response.data.units);
       setUnits(response.data.units.map(e=>{
         return{
-          id:e.id,namaUnit:e.name,kode:e.kode,singkatan:e.singkatan,lokasi:e.lokasi
+          namaUnit:e.name,kode:e.kode,singkatan:e.singkatan,lokasi:e.lokasi,id:e.id
         }
       }));
     }catch(err){
@@ -107,8 +107,8 @@ const Units = props => {
 
   return (
     <>
-    <MainCard title="Unit Kerja" secondary={<FormAction title="Tambah Unit" icon={<IconPlus/>} handleClick={handleClick}/>}>
-        <UnitsData rows={units} columns={columns}/>
+    <MainCard title="Unit Kerja" secondary={<FormAction title="Tambah Unit" titleDelete="Hapus Unit" titleEdit="Edit Unit" icon={<IconPlus/>} iconDelete={<IconTrash/>} iconEdit={<IconEdit/>} handleClick={handleClick}/>}>
+        <UnitsData rows={units}/>
     </MainCard>
     
     <Dialog open={open} onClose={handleClose}>
