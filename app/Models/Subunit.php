@@ -16,6 +16,7 @@ class Subunit extends Model
     'nip_bend',
     'jabatan_bend',
     'nama_sptjm',
+    'jabatan_sptjm',
     'nip_sptjm',
     'nama_sp2b',
     'nip_sp2b',
@@ -23,6 +24,6 @@ class Subunit extends Model
     'unit_id'];
 
     public function unit(){
-        return $this->belongsTo(Unit::class);
+        return $this->belongsTo(Unit::class,'unit_id');
     }
 }

@@ -53,6 +53,7 @@ const UnitsDetails = props => {
       let response=await api.get('/units/'+id);
       setUnit(response.data.unit);
       if(response.data.subunits.length>0){
+        console.log(response.data.subunits);
         setSubunits(response.data.subunits.map(e=>{
           return{
             nama:e.name,kode:e.kode,singkatan:e.singkatan,id:e.id
@@ -140,7 +141,7 @@ const UnitsDetails = props => {
         </DialogActions>
       </MainCard>
     </Dialog>
-    <Subunits unit={unit}></Subunits>
+    <Subunits unit={unit} rows={subunits}></Subunits>
     </>
   )
 }

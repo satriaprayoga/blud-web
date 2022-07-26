@@ -47,6 +47,7 @@ class SubunitController extends Controller
         if($subunit==null){
             return response()->json(['message'=>'Sub Unit tidak ditemukan'],404);
         }
+        $subunit->unit();
         return response()->json(['subunit'=>$subunit]);
     }
 
@@ -87,6 +88,7 @@ class SubunitController extends Controller
             'nip_bend'=>'required|string|max:255',
             'jabatan_bend'=>'required|string|max:255',
             'nama_sptjm'=>'required|string|max:255',
+            'jabatan_sptjm'=>'required|string|max:255',
             'nip_sptjm'=>'required|string|max:255',
             'nama_sp2b'=>'required|string|max:255',
             'nip_sp2b'=>'required|string|max:255',
