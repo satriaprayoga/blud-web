@@ -3,19 +3,50 @@ import PropTypes from 'prop-types'
 import MainCard from '../../ui-component/cards/MainCard'
 import SubCard from '../../ui-component/cards/SubCard'
 import { useState } from 'react'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import api from '../../utils/api'
 import { useEffect } from 'react'
-import { Grid, Typography } from '@mui/material'
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Grid, Typography } from '@mui/material'
 import { IconPlus,IconTrash, IconEdit } from '@tabler/icons';
 import MuiTypography from '@mui/material/Typography';
 import Subunits from './subunits/Subunits'
 import FormAction from '../../ui-component/cards/FormAction'
+import EditForm from './forms/EditForm'
 
 const UnitsDetails = props => {
   const [unit,setUnit]=useState({});
   const [subunits,setSubunits]=useState([]);
+  const [open,setOpen]=useState(false);
+  const [deleteOpen,setDeleteOpen]=useState(false);
+
   const {id}=useParams();
+  const navigation=useNavigate();
+
+  const handleEditClick=()=>{
+    setOpen(true);
+  }
+  const handleClose=()=>{
+    setOpen(false);
+  };
+
+  const handleDeleteClose=()=>{
+    setDeleteOpen(false);
+  }
+
+  const handleDeleteClick=()=>{
+    setDeleteOpen(true);
+  }
+
+  const handleDelete= async ()=>{
+    try {
+      const response=api.delete('units/'+id);
+     
+    } catch (error) {
+      
+    }
+    handleDeleteClose();
+    navigation("/units");
+  }
 
   const loadUnit=async()=>{
     try {
@@ -39,7 +70,7 @@ const UnitsDetails = props => {
 
   return (
     <>
-    <MainCard title={unit.name} secondary={<FormAction titleDelete="Hapus Unit" titleEdit="Edit Unit" iconDelete={<IconTrash/>} iconEdit={<IconEdit/>}/>}>
+    <MainCard title={unit.name} secondary={<FormAction titleDelete="Hapus Unit" titleEdit="Edit Unit" iconDelete={<IconTrash/>} iconEdit={<IconEdit/>} handleEdit={handleEditClick} handleDelete={handleDeleteClick}/>}>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
         <SubCard title="Profil Unit Kerja">
@@ -93,6 +124,22 @@ const UnitsDetails = props => {
       </Grid>
            
     </MainCard>
+    <EditForm initialValues={unit} open={open} handleClose={handleClose} afterSave={loadUnit}/>
+    <Dialog open={deleteOpen}>
+      <MainCard title="Hapus Unit">
+        <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+        Menghapus unit {unit.name}. Anda Yakin?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDelete}>Ya, Hapus</Button>
+          <Button onClick={handleDeleteClose} autoFocus>
+            Batal
+          </Button>
+        </DialogActions>
+      </MainCard>
+    </Dialog>
     <MainCard title="Sub Unit" sx={{marginTop:5}} secondary={<FormAction title="Tambah Sub Unit" icon={<IconPlus/>} />}>
       {subunits.length>0 && <Subunits/>}
     </MainCard>

@@ -32,7 +32,7 @@ class UnitController extends Controller
             return response()->json(['errors'=>$validated->errors()],422);
         }
         $newUnit=Unit::create([
-            'nama'=>$request->nama,
+            'name'=>$request->name,
             'kode'=>$request->kode,
             'singkatan'=>$request->singkatan,
             'lokasi'=>$request->lokasi,
@@ -75,7 +75,7 @@ class UnitController extends Controller
         if($unit==null){
             return response()->json(['message'=>'Unit tidak ditemukan'],404);
         }
-        $unit->nama=$request->nama;
+        $unit->name=$request->name;
         $unit->kode=$request->kode;
         $unit->singkatan=$request->singkatan;
         $unit->lokasi=$request->lokasi;
@@ -103,15 +103,15 @@ class UnitController extends Controller
             if($unit->subunits->isNotEmpty()){
                 return response()->json(['message'=>'Unit memiliki Sub Unit'],404);
             }
-            $unit->destroy();
-            return response()->json(['message'=>'Unit berhasil dihapus'],400);
+            $unit->delete();
+            return response()->json(['message'=>'Unit berhasil dihapus'],200);
         }
         
     }
 
     protected function unitValidator(Request $request){
         return Validator::make($request->all(),[
-            'nama'=>'required|string|max:255',
+            'name'=>'required|string|max:255',
             'kode'=>'required|string|max:255|unique:units',
             'singkatan'=>'required|string|max:255',
             'lokasi'=>'required|string|max:255',

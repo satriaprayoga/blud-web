@@ -12,15 +12,9 @@ const ActionColumn=(props)=>{
     return(
         <>
             <Box sx={{border: 'none', alignItems:'center', display:'flex', width:'100%'}}>
-            <ButtonGroup aria-label="outlined button group" sx={{alignSelf:'center'}}>
             <Button onClick={(e)=>{e.preventDefault();navigation('/units/'+value);}} sx={{width:'50%',}}>
                 <IconEye/>
               </Button>
-              <Button>
-                  <IconEdit/>
-              </Button>
-            </ButtonGroup>
-              
             </Box>
         </>
     );
@@ -30,7 +24,7 @@ const columns = [
     {
       field: 'namaUnit',
       headerName: 'Nama',
-      width: 250,
+      width: 400,
       editable: false,
     },
     {
@@ -56,7 +50,6 @@ const columns = [
         width: 160,
         editable: false,
         renderCell: ActionColumn,
-        headerAlign:'center'
     }
 ]
 
