@@ -32,7 +32,7 @@ class SubunitController extends Controller
             return response()->json(['errors'=>$validated->errors()],422);
         }
         $subunit=Subunit::create($request->all());
-        return response()->json(['subunit'=>$subunit]);
+        return response()->json(['subunit'=>$request->all()]);
     }
 
     /**
@@ -81,7 +81,7 @@ class SubunitController extends Controller
     protected function subunitValidation(Request $request){
         return Validator::make($request->all(),[
             'nama'=>'required|string|max:255',
-            'kode'=>'required|string|max:255',
+            'kode'=>'required|string|max:255|unique:subunits',
             'singkatan'=>'required|string|max:255',
             'nama_bend'=>'required|string|max:255',
             'nip_bend'=>'required|string|max:255',

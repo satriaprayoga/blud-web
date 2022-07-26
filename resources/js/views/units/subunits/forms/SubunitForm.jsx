@@ -5,22 +5,20 @@ import { Box, Button, Dialog, DialogActions, DialogContent, TextField } from '@m
 import { object } from 'yup'
 import { string } from 'yup'
 import MainCard from '../../../../ui-component/cards/MainCard'
+import api from '../../../../utils/api'
 
-const initialValues = {
-    "nama": "",
-    "kode": "",
-    "singkatan": "",
-    "lokasi": "",
-    "nama_bend": "-",
-    "nip_bend": "-",
-    "jabatan_bend": "-",
-    "nama_sptjm": "-",
-    "nip_sptjm": "-",
-    "jabatan_sptjm": "-",
-    "unit_id":0
-}
 
 const SubunitForm = ({open, handleClose, initialValues})  => {
+
+    const handleSave=async(values)=>{
+        try {
+            let response=await api.post('subunits',values);
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <Dialog open={open} onClose={handleClose} scroll='paper' aria-labelledby="scroll-dialog-title"
         aria-describedby="scroll-dialog-description">
@@ -38,7 +36,7 @@ const SubunitForm = ({open, handleClose, initialValues})  => {
                 })}
                 onSubmit={(values,formikHelpers)=>{
                     console.log(values);
-                   // handleSave(values);
+                    handleSave(values);
                     formikHelpers.resetForm();
                     handleClose();
                     
