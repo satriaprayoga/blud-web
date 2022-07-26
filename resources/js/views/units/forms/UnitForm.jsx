@@ -39,9 +39,9 @@ const UnitForm = ({open, handleClose, afterSave}) => {
                     kode:string().required("Mohon isi kode Unit").min(4,"Min. 4 karakter"),
                     singkatan:string().required("Mohon isi singkatan Unit").min(4,"Min. 4 karakter"),
                     lokasi:string().required("Mohon isi lokasi Unit").min(4,"Min. 4 karakter"),
-                    nama_kepala:string().required("Mohon isi nama Unit"),
-                    nip_kepala:string().required("Mohon isi nama Unit"),
-                    jabatan_kepala:string().required("Mohon isi nama Unit"),
+                    nama_kepala:string().required("Mohon isi nama Kepala Unit"),
+                    nip_kepala:string().required("Mohon isi NIP Kepala Unit"),
+                    jabatan_kepala:string().required("Mohon isi Jabatan Kepala Unit"),
 
                 })}
                 onSubmit={(values,formikHelpers)=>{

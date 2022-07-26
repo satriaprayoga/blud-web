@@ -15,14 +15,6 @@ const settings={
             url:'/units',
             icon:icon.IconBuildingCommunity,
             breadcrumbs:false
-        },
-        {
-            id:'subunits',
-            title:'Sub Unit',
-            type:'item',
-            url:'/subunits',
-            icon:icon.IconBuilding,
-            breadcrumbs:false
         }
     ]
 }

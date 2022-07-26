@@ -140,9 +140,7 @@ const UnitsDetails = props => {
         </DialogActions>
       </MainCard>
     </Dialog>
-    <MainCard title="Sub Unit" sx={{marginTop:5}} secondary={<FormAction title="Tambah Sub Unit" icon={<IconPlus/>} />}>
-      {subunits.length>0 && <Subunits/>}
-    </MainCard>
+    <Subunits unit={unit}></Subunits>
     </>
   )
 }
