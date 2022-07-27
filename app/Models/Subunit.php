@@ -20,8 +20,8 @@ class Subunit extends Model
     'nip_sptjm',
     'nama_sp2b',
     'nip_sp2b',
-    'jabatan_sp2b',
-    'unit_id'];
+    'jabatan_sp2b'
+];
 
     public function unit(){
         return $this->belongsTo(Unit::class,'unit_id');

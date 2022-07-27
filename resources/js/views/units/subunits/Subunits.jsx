@@ -3,8 +3,24 @@ import PropTypes from 'prop-types'
 import { DataGrid } from '@mui/x-data-grid'
 import MainCard from '../../../ui-component/cards/MainCard'
 import FormAction from '../../../ui-component/cards/FormAction'
-import { IconPlus } from '@tabler/icons'
+import { IconEye, IconPlus } from '@tabler/icons'
 import SubunitForm from './forms/SubunitForm'
+import { Box, Button } from '@mui/material'
+import { useNavigate } from 'react-router'
+
+const ActionColumn=(props)=>{
+  const {value}=props;
+  const navigation=useNavigate();
+  return(
+      <>
+          <Box sx={{border: 'none', alignItems:'center', display:'flex', width:'100%'}}>
+          <Button onClick={(e)=>{e.preventDefault();navigation('/units/subs/'+value);}} sx={{width:'50%',}}>
+              <IconEye/>
+            </Button>
+          </Box>
+      </>
+  );
+}
 
 const columns = [
     {
@@ -25,9 +41,11 @@ const columns = [
       width: 150,
     },
     {
-        field: 'id',
-        headerName: 'Aksi',
-        width: 160,
+      field: 'id',
+      headerName: 'Aksi',
+      width: 160,
+      editable: false,
+      renderCell: ActionColumn,
     }
 ]
 
@@ -44,7 +62,10 @@ const Subunits = ({rows,unit})=> {
   return (
     <MainCard title="Sub Unit" sx={{marginTop:5}} secondary={<FormAction title="Tambah Sub Unit" icon={<IconPlus/>} handleClick={handleClick}/>}>
      {rows && 
-      <DataGrid columns={columns} rows={rows}/>
+      <Box sx={{height:400,width:'100%'}}>
+         <DataGrid columns={columns} rows={rows}/>
+      </Box>
+     
      }
      <SubunitForm open={open} 
      handleClose={handleClose} 

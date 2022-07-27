@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subunit;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -31,7 +32,21 @@ class SubunitController extends Controller
         if($validated->fails()){
             return response()->json(['errors'=>$validated->errors()],422);
         }
-        $subunit=Subunit::create($request->all());
+        $unit=Unit::find($request->unit_id);
+        $unit->subunits()->create([
+            'nama'=>$request->nama,
+            'kode'=>$request->kode,
+            'singkatan'=>$request->singkatan,
+            'nama_bend'=>$request->nama_bend,
+            'nip_bend'=>$request->nip_bend,
+            'jabatan_bend'=>$request->jabatan_bend,
+            'nama_sptjm'=>$request->nama_sptjm,
+            'jabatan_sptjm'=>$request->jabatan_sptjm,
+            'nip_sptjm'=>$request->nip_sptjm,
+            'nama_sp2b'=>$request->nama_sp2b,
+            'nip_sp2b'=>$request->nip_sp2b,
+            'jabatan_sp2b'=>$request->jabatan_sp2b,
+        ]);
         return response()->json(['subunit'=>$request->all()]);
     }
 
@@ -47,7 +62,7 @@ class SubunitController extends Controller
         if($subunit==null){
             return response()->json(['message'=>'Sub Unit tidak ditemukan'],404);
         }
-        $subunit->unit();
+        $subunit->unit;
         return response()->json(['subunit'=>$subunit]);
     }
 
@@ -58,9 +73,28 @@ class SubunitController extends Controller
      * @param  \App\Models\Subunit  $subunit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subunit $subunit)
+    public function update(Request $request, $id)
     {
-        //
+        $validated=$this->EditSubunitValidation($request);
+        if($validated->fails()){
+            return response()->json(['errors'=>$validated->errors()],422);
+        }
+        $subunit=Subunit::find($id);
+        $subunit->update([
+            'nama'=>$request->nama,
+            'singkatan'=>$request->singkatan,
+            'nama_bend'=>$request->nama_bend,
+            'nip_bend'=>$request->nip_bend,
+            'jabatan_bend'=>$request->jabatan_bend,
+            'nama_sptjm'=>$request->nama_sptjm,
+            'jabatan_sptjm'=>$request->jabatan_sptjm,
+            'nip_sptjm'=>$request->nip_sptjm,
+            'nama_sp2b'=>$request->nama_sp2b,
+            'nip_sp2b'=>$request->nip_sp2b,
+            'jabatan_sp2b'=>$request->jabatan_sp2b,
+        ]);
+        
+        return response()->json(['subunit'=>$subunit]);
     }
 
     /**
@@ -75,14 +109,32 @@ class SubunitController extends Controller
         if($subunit==null){
             return response()->json(['message'=>'Sub Unit tidak ditemukan'],404);
         }
-        $subunit->destroy();
-        return response()->json(['message'=>'Sub Unit berhasil dihapus'],400);
+        $subunit->delete();
+        return response()->json(['message'=>'Sub Unit berhasil dihapus'],200);
     }
 
     protected function subunitValidation(Request $request){
         return Validator::make($request->all(),[
             'nama'=>'required|string|max:255',
             'kode'=>'required|string|max:255|unique:subunits',
+            'singkatan'=>'required|string|max:255',
+            'nama_bend'=>'required|string|max:255',
+            'nip_bend'=>'required|string|max:255',
+            'jabatan_bend'=>'required|string|max:255',
+            'nama_sptjm'=>'required|string|max:255',
+            'jabatan_sptjm'=>'required|string|max:255',
+            'nip_sptjm'=>'required|string|max:255',
+            'nama_sp2b'=>'required|string|max:255',
+            'nip_sp2b'=>'required|string|max:255',
+            'jabatan_sp2b'=>'required|string|max:255',
+            'unit_id'=>'required|integer'
+
+        ]);
+    }
+
+    protected function editSubunitValidation(Request $request){
+        return Validator::make($request->all(),[
+            'nama'=>'required|string|max:255',
             'singkatan'=>'required|string|max:255',
             'nama_bend'=>'required|string|max:255',
             'nip_bend'=>'required|string|max:255',

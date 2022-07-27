@@ -56,7 +56,7 @@ const UnitsDetails = props => {
         console.log(response.data.subunits);
         setSubunits(response.data.subunits.map(e=>{
           return{
-            nama:e.name,kode:e.kode,singkatan:e.singkatan,id:e.id
+            nama:e.nama,kode:e.kode,singkatan:e.singkatan,id:e.id
           }
         }));
       }
