@@ -103,6 +103,11 @@ class AccountController extends Controller
         return response()->json(['message'=>'Akun berhasil di hapus']);
     }
 
+    public function reportRoot($report,$root){
+        $accounts=Account::where('report',$report)->where('root',$root)->get();
+        return response()->json(['lra'=>$accounts],200);
+    }
+
     protected function accountValidator(Request $request)
     {
         return Validator::make($request->only(['kode','name']), [

@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
 Route::apiResource('accounts',AccountController::class);
+Route::get('/accounts/report/{report}/root/{root}',[AccountController::class,'reportRoot']);
+
+
 Route::apiResource('units',UnitController::class);
 Route::apiResource('subunits',SubunitController::class);
 Route::middleware('auth:sanctum')->group(function () {
