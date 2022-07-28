@@ -27,29 +27,29 @@ const settings={
                     id: 'lra',
                     title: 'LRA',
                     type: 'item',
-                    url: '/',
-                    target: true
+                    url: '/accounts/lra',
+                    target: false
                 },
                 {
                     id: 'lpe',
                     title: 'LPE',
                     type: 'item',
-                    url: '/',
-                    target: true
+                    url: '/accounts/lpe',
+                    target: false
                 },
                 {
                     id: 'lo',
                     title: 'LO',
                     type: 'item',
-                    url: '/',
-                    target: true
+                    url: '/accounts/lo',
+                    target: false
                 },
                 {
                     id: 'neraca',
                     title: 'Neraca',
                     type: 'item',
-                    url: '/',
-                    target: true
+                    url: '/accounts/neraca',
+                    target: false
                 },
             ]
         }

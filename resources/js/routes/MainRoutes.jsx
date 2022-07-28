@@ -9,6 +9,8 @@ const SettingsUnit= Loadable(React.lazy(()=>import('../views/units/Units')));
 const ViewUnit=Loadable(React.lazy(()=>import('../views/units/UnitsDetails')));
 const ViewSubunit=Loadable(React.lazy(()=>import('../views/units/subunits/SubunitsDetails')));
 
+const Accounts=Loadable(React.lazy(()=>import('../views/accounts/Accounts')));
+
 // dashboard routing
 const DashboardDefault = Loadable(React.lazy(() => import('../views/dashboard/Default')));
 
@@ -61,6 +63,27 @@ const MainRoutes = {
                         }
                     ]
                 }
+            ]
+        },
+        {
+            path:'accounts',
+            children:[
+                {
+                    path:"lra",
+                    element:<Accounts report="LRA"/>,
+                },
+                {
+                    path:"lo",
+                    element:<Accounts report="LO"/>
+                },
+                {
+                    path:"lpe",
+                    element:<Accounts report="LPE"/>
+                },
+                {
+                    path:"neraca",
+                    element:<Accounts report="Neraca"/>
+                },
             ]
         },
         {
