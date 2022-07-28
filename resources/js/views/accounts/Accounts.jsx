@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import MainCard from '../../ui-component/cards/MainCard'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import { useState } from 'react'
+import api from '../../utils/api';
 
 const Accounts = ({ report }) => {
 
@@ -12,7 +13,9 @@ const Accounts = ({ report }) => {
 
     const handleChange= async (event)=>{
         try {
-            
+            setInduk(event.target.value);
+            let response=await api.get(`accounts/report/${report}/type/${event.target.value}`);
+            setAccounts(response.data.accounts);
         } catch (error) {
             
         }
@@ -31,11 +34,14 @@ const Accounts = ({ report }) => {
                         label="Akun"
                         onChange={handleChange}
                     >
-                        <MenuItem value='semua'>Semua</MenuItem>
+                        <MenuItem value=''>Semua</MenuItem>
                         <MenuItem value='pendapatan'>Pendapatan</MenuItem>
                         <MenuItem value='belanja'>Belanja</MenuItem>
                     </Select>
-                </FormControl>}></MainCard>
+                </FormControl>
+            }>
+
+        </MainCard>
     )
 }
 
