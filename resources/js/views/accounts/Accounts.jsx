@@ -8,9 +8,14 @@ import { useState } from 'react'
 const Accounts = ({ report }) => {
 
     const [induk,setInduk]=useState('')
+    const [accounts,setAccounts]=useState([]);
 
     const handleChange= async (event)=>{
-        setInduk(event.target.value);
+        try {
+            
+        } catch (error) {
+            
+        }
     }
 
     return (

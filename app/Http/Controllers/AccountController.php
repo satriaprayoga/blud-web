@@ -105,7 +105,18 @@ class AccountController extends Controller
 
     public function reportRoot($report,$root){
         $accounts=Account::where('report',$report)->where('root',$root)->get();
-        return response()->json(['lra'=>$accounts],200);
+        return response()->json(['accounts'=>$accounts],200);
+    }
+
+    public function reportType($report,$type=null){
+        $accounts=[];
+        if(is_null($type)){
+            $accounts=Account::where('report',$report)->get();
+        }else{
+            $accounts=Account::where('report',$report)->where('type',$type)->get();
+        }
+       
+        return response()->json(['accounts'=>$accounts],200);
     }
 
     protected function accountValidator(Request $request)
