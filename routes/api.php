@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
 Route::apiResource('accounts',AccountController::class);
-Route::get('/accounts/report/{report}/root/{root}',[AccountController::class,'reportRoot']);
-Route::get('/accounts/report/{report}/type/{type?}',[AccountController::class,'reportType']);
+Route::get('/accounts/group/{group}/root/{root?}',[AccountController::class,'groupRoot']);
+Route::get('/accounts/group/{group}/type/{type?}',[AccountController::class,'groupType']);
 
 
 Route::apiResource('units',UnitController::class);

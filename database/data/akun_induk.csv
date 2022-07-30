@@ -1,0 +1,9 @@
+kode,name,root,report,type,group,parent_id
+1,Aset,1,induk,aset,neraca
+2,Kewajiban,1,induk,kewajiban,neraca
+3,Ekuitas,1,induk,ekuitas,neraca
+4,Pendapatan BLUD,1,induk,pendapatan,lra
+5,Belanja BLUD,1,induk,belanja,lra
+6,Pembiayaan,1,induk,pembiayaan,lra
+7,Pendapatan-LO BLUD,1,induk,pendapatan-lo,lo
+8,Beban Operasi -LOBLUD,1,induk,beban-lo,lo

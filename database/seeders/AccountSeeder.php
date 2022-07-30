@@ -15,58 +15,27 @@ class AccountSeeder extends Seeder
      */
     public function run()
     {
-        Account::insert([
-            'kode'=>'4',
-            'name'=>'PENDAPATAN',
-            'root'=>true,
-            'report'=>'LRA',
-            'type'=>'pendapatan',
-            'group'=>'induk',
-            'nilai'=>0.00
-        ]);
-        Account::insert([
-            'kode'=>'5',
-            'name'=>'BELANJA',
-            'root'=>false,
-            'report'=>'LRA',
-            'type'=>'belanja',
-            'group'=>'induk',
-            'nilai'=>0.00
+        Account::truncate();
 
-        ]);
-        Account::insert([
-            'kode'=>'51',
-            'name'=>'BELANJA OPERASIONAL',
-            'root'=>false,
-            'report'=>'LRA',
-            'type'=>'belanja',
-            'group'=>'kelompok',
-            'nilai'=>0.00,
-            'parent_id'=>2
+        $csvFile = fopen(base_path("database/data/akun_induk.csv"), "r");
 
-        ]);
-        Account::insert([
-            'kode'=>'511',
-            'name'=>'BELANJA PEGAWAI',
-            'root'=>false,
-            'report'=>'LRA',
-            'type'=>'belanja',
-            'group'=>'jenis',
-            'nilai'=>0.00,
-            'parent_id'=>3
+        $firstLine = true;
+        while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
+            if (!$firstLine) {
+                Account::create(
+                    [
+                        'kode' => $data[0],
+                        'name' => $data[1],
+                        'root' => $data[2],
+                        'report' => $data[3],
+                        'type' => $data[4],
+                        'group' => $data[5]
+                    ]
+                );
+            }
+            $firstLine = false;
+        }
 
-        ]);
-        Account::insert([
-            'kode'=>'512',
-            'name'=>'BELANJA BARANG DAN JASA',
-            'root'=>false,
-            'report'=>'LRA',
-            'type'=>'belanja',
-            'group'=>'jenis',
-            'nilai'=>0.00,
-            'parent_id'=>3
-
-        ]);
-       
+        
     }
 }

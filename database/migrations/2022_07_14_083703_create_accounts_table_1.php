@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('report');
             $table->string('type');//belanja or pendapatan
             $table->string('group');//induk, kelompok, rincian, objek
-            $table->float('nilai',13,2)->default(0.0);
             $table->integer('parent_id')->nullable();
             $table->timestamps();
         });

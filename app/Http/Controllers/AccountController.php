@@ -103,17 +103,17 @@ class AccountController extends Controller
         return response()->json(['message'=>'Akun berhasil di hapus']);
     }
 
-    public function reportRoot($report,$root){
-        $accounts=Account::where('report',$report)->where('root',$root)->get();
+    public function groupRoot($group,$root=null){
+        $accounts=Account::where('group',$group)->where('root',$root)->get();
         return response()->json(['accounts'=>$accounts],200);
     }
 
-    public function reportType($report,$type=null){
+    public function groupType($group,$type=null){
         $accounts=[];
         if(is_null($type)){
-            $accounts=Account::where('report',$report)->get();
+            $accounts=Account::where('group',$group)->get();
         }else{
-            $accounts=Account::where('report',$report)->where('type',$type)->get();
+            $accounts=Account::where('group',$group)->where('type',$type)->get();
         }
        
         return response()->json(['accounts'=>$accounts],200);
