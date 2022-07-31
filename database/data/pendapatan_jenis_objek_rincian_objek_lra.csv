@@ -1,0 +1,6 @@
+kode,name,root,report,type,group,parent_id
+411,Pendapatan Jasa Layanan,0,jenis,pendapatan,lra,9
+421,Pendapatan Hibah,0,jenis,pendapatan,lra,10
+431,Hasil Kerjasama,0,jenis,pendapatan,lra,11
+441,APBD,0,jenis,pendapatan,lra,12
+451,Lain-lain Pendapatan BLUD yang Sah,0,jenis,pendapatan,lra,13

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
-            $table->string('kode')->unique();
+            $table->string('kode');
             $table->string('name');
             $table->boolean('root');
             $table->string('report');

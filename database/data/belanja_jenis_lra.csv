@@ -1,0 +1,10 @@
+kode,name,root,report,type,group,parent_id
+51111,Belanja Jasa Pelayanan Bagi ASN,0,rincian objek,belanja,lra,37
+51121,Honorarium Penanggungjawaban Pengelolaan Keuangan BLUD,0,rincian objek,belanja,lra,38
+51122,Honorarium Pengadaan Barang/jasa,0,rincian objek,belanja,lra,38
+51123,Honorarium Pengelolaan BMD yang Menghasilkan Pendapatan,0,rincian objek,belanja,lra,38
+51131,Tunjangan Pengabdian,0,rincian objek,belanja,lra,39
+51141,Iuran Tunjangan Hari Tua,0,rincian objek,belanja,lra,40
+51142,Iuran Tunjangan Kesehatan,0,rincian objek,belanja,lra,49
+51143,Iuran Tunjangan Kecelakaan Kerja,0,rincian objek,belanja,lra,40
+51144,Iuran Tunjangan Kematian,0,rincian objek,belanja,lra,40

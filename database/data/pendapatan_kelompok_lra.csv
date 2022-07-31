@@ -1,0 +1,6 @@
+kode,name,root,report,type,group,parent_id
+4.1,Pendapatan Jasa Layanan,0,kelompok,pendapatan,lra,4
+4.2,Pendapatan Hibah,0,kelompok,pendapatan,lra,4
+4.3,Hasil Kerjasama ,0,kelompok,pendapatan,lra,4
+4.4,APBD,0,kelompok,pendapatan,lra,4
+4.5,Lain-lain Pendapatan BLUD yang Sah,0,kelompok,pendapatan,lra,4

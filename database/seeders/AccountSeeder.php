@@ -15,9 +15,9 @@ class AccountSeeder extends Seeder
      */
     public function run()
     {
-        Account::truncate();
+        //Account::truncate();
 
-        $csvFile = fopen(base_path("database/data/akun_induk.csv"), "r");
+        $csvFile = fopen(base_path("database/data/pendapatan_kelompok_lra.csv"), "r");
 
         $firstLine = true;
         while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
@@ -29,7 +29,8 @@ class AccountSeeder extends Seeder
                         'root' => $data[2],
                         'report' => $data[3],
                         'type' => $data[4],
-                        'group' => $data[5]
+                        'group' => $data[5],
+                        'parent_id'=>$data[6]
                     ]
                 );
             }
