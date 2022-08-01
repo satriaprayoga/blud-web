@@ -17,7 +17,7 @@ class AccountSeeder extends Seeder
     {
         //Account::truncate();
 
-        $csvFile = fopen(base_path("database/data/pendapatan_kelompok_lra.csv"), "r");
+        $csvFile = fopen(base_path("database/data/belanja_modal_lra.csv"), "r");
 
         $firstLine = true;
         while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
@@ -30,7 +30,7 @@ class AccountSeeder extends Seeder
                         'report' => $data[3],
                         'type' => $data[4],
                         'group' => $data[5],
-                        'parent_id'=>$data[6]
+                        'parent_id'=>empty($data[6])?NULL:(int)$data[6]
                     ]
                 );
             }

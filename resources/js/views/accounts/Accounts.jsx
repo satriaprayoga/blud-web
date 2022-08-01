@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import MainCard from '../../ui-component/cards/MainCard'
 import SubCard from '../../ui-component/cards/SubCard'
-import { Box, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material'
+import { Box, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, TextField, Typography } from '@mui/material'
 
 import api from '../../utils/api';
 import { SearchOutlined } from '@mui/icons-material'
@@ -14,6 +14,7 @@ const Accounts = ({ report }) => {
     const [accounts, setAccounts] = useState([]);
 
     const handleChange = async (event) => {
+        setAccounts([]);
         try {
             setInduk(event.target.value);
             let response = await api.get(`accounts/group/${report}/type/${event.target.value}`);
@@ -53,7 +54,7 @@ const Accounts = ({ report }) => {
             }>
             <Grid container>
                 <Grid item xs={4} style={{ display: "flex", justifyContent: "flex-start" }}>
-                    <Typography variant='h3'>{induk.length === 0 ? 'Semua Akun' : induk}</Typography>
+                    <Typography variant='h3'>{induk.length === 0 ? 'Semua Akun' : induk.toUpperCase()}</Typography>
                 </Grid>
                 <Grid item xs={8} style={{ display: "flex", justifyContent: "flex-end" }}>
                     <Box sx={{ display: 'flex', alignItems: 'flex-end', margin:1 }}>
@@ -69,6 +70,8 @@ const Accounts = ({ report }) => {
                                     <TableRow>
                                         <TableCell>Kode</TableCell>
                                         <TableCell>Uraian</TableCell>
+                                        <TableCell>Laporan</TableCell>
+                                        <TableCell>Level</TableCell>
                                         <TableCell>Kelompok</TableCell>
                                     </TableRow>
                                 </TableHead>
@@ -77,12 +80,18 @@ const Accounts = ({ report }) => {
                                        <TableRow key={acc.kode}>
                                             <TableCell><a href="/">{acc.kode}</a></TableCell>
                                             <TableCell>{acc.name}</TableCell>
-                                            <TableCell>{acc.group}</TableCell>
+                                            <TableCell>{acc.group.toUpperCase()}</TableCell>
+                                            <TableCell>{acc.report}</TableCell>
+                                            <TableCell>{acc.type}</TableCell>
                                        </TableRow>
                                     ))}
                                 </TableBody>
                             </Table>
                         </TableContainer>
+                        <TablePagination rowsPerPageOptions={[5,10,25]} 
+                            count={accounts.length}
+                            rowsPerPage={5}
+                            page={0}></TablePagination>
                     </SubCard>
                 </Grid>
             </Grid>

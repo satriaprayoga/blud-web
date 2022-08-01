@@ -1,0 +1,94 @@
+kode,name,root,report,type,group,parent_id
+5.2,Belanja Modal,0,kelompok,belanja,lra,16
+5.2.01,Belanja Tanah,0,jenis,belanja,lra,177
+5.2.01.01,Belanja Tanah,0,rincian objek,belanja,lra,178
+5.2.01.01.001,Belanja Tanah,0,rincian,belanja,lra,179
+5.2.02,Belanja Peralatan dan Mesin,0,jenis,belanja,lra,177
+5.2.02.01,Belanja Modal Alat Besar,0,rincian objek,belanja,lra,181
+5.2.02.01.001,Belanja Modal Pompa,0,rincian,belanja,lra,182
+5.2.02.01.002,Belanja Modal Mesin Bor,0,rincian,belanja,lra,182
+5.2.02.01.003,Belanja Modal Kendaraan Dinas Bermotor Perorangan,0,rincian,belanja,lra,182
+5.2.02.01.004,Belanja Modal Kendaraan Bermotor Penumpang,0,rincian,belanja,lra,182
+5.2.02.01.005,Belanja Modal Kendaraan Bermotor Angkutan Barang,0,rincian,belanja,lra,182
+5.2.02.01.006,Belanja Modal Kendaraan Bermotor Beroda Dua,0,rincian,belanja,lra,182
+5.2.02.01.007,Belanja Modal Kendaraan Bermotor Beroda Tiga,0,rincian,belanja,lra,182
+5.2.02.01.008,Belanja Modal Kendaraan Bermotor Khusus,0,rincian,belanja,lra,182
+5.2.02.01.009,Belanja Modal Kendaraan Tak Bermotor Angkutan Barang,0,rincian,belanja,lra,182
+5.2.02.01.010,Belanja Modal Alat Bengkel ,0,rincian,belanja,lra,182
+5.2.02.01.011,Belanja Modal Alat Ukur,0,rincian,belanja,lra,182
+5.2.02.01.012,Belanja Modal Alat Pertanian,0,rincian,belanja,lra,182
+5.2.02.01.013,Belanja Modal Alat Pengolahan,0,rincian,belanja,lra,182
+5.2.02.02,Belanja Modal Alat Kantor,0,rincian objek,belanja,lra,181
+5.2.02.02.001,Belanja Modal Mesin Hitung/Mesin Jumlah,0,rincian,belanja,lra,196
+5.2.02.02.002,Belanja Modal Alat Penyimpan Perlengkapan Kantor,0,rincian,belanja,lra,196
+5.2.02.02.003,Belanja Modal Alat Kantor Lainnya,0,rincian,belanja,lra,196
+5.2.02.03,Belanja Modal Alat Rumah Tangga,0,rincian objek,belanja,lra,181
+5.2.02.03.001,Belanja Modal Mebel,0,rincian,belanja,lra,200
+5.2.02.03.002,Belanja Modal Alat Pembersih,0,rincian,belanja,lra,200
+5.2.02.03.003,Belanja Modal Alat Pendingin,0,rincian,belanja,lra,200
+5.2.02.03.004,Belanja Modal Alat Rumah Tangga Lainnya (Home Use),0,rincian,belanja,lra,200
+5.2.02.03.005,Belanja Modal Alat Pemadam Kebakaran,0,rincian,belanja,lra,200
+5.2.02.03.006,Belanja Modal Lemari dan Arsip,0,rincian,belanja,lra,200
+5.2.02.03.007,Belanja Modal Peralatan Studio Audio,0,rincian,belanja,lra,200
+5.2.02.03.008,Belanja Modal Alat Studio Lainnya,0,rincian,belanja,lra,200
+5.2.02.03.009,Belanja Modal Alat Komunikasi Telephone,0,rincian,belanja,lra,200
+5.2.02.03.010,Belanja Modal Alat Komunikasi Lainnya,0,rincian,belanja,lra,200
+5.2.02.03.011,Belanja Modal Sumber Tenaga,0,rincian,belanja,lra,200
+5.2.02.04,Belanja Modal Alat Kedokteran Gigi,0,rincian objek,belanja,lra,181
+5.2.02.04.001,Belanja Modal Alat Kedokteran Umum,0,rincian,belanja,lra,212
+5.2.02.04.002,Belanja Modal Alat Kesehatan Kebidanan dan Penyakit Kandungan,0,rincian,belanja,lra,212
+5.2.02.04.003,Belanja Modal Alat Kedokteran anak,0,rincian,belanja,lra,212
+5.2.02.04.004,Belanja Modal Alat Kedokteran Neurologi (Saraf),0,rincian,belanja,lra,212
+5.2.02.04.005,Belanja Modal Alat Kedokteran Jantung,0,rincian,belanja,lra,212
+5.2.02.04.006,Belanja Modal Alat Kesehatan Umum Lainnya,0,rincian,belanja,lra,212
+5.2.02.05,Belanja Modal Alat Laboratorium,0,rincian objek,belanja,lra,181
+5.2.02.05.001,Belanja Modal Alat Laboratorium,0,rincian,belanja,lra,219
+5.2.02.05.002,Belanja Modal Alat Laboratorium Standar dan Kalibrator,0,rincian,belanja,lra,219
+5.2.02.06,Belanja Modal Komputer,0,rincian objek,belanja,lra,181
+5.2.02.06.001,Belanja Modal Komputer Jaringan,0,rincian,belanja,lra,222
+5.2.02.06.002,Belanja Modal Personal Computer,0,rincian,belanja,lra,222
+5.2.02.06.003,Belanja Modal Komputer Unit Lainnya,0,rincian,belanja,lra,222
+5.2.02.06.004,Belanja Modal Peralatan Mainframe,0,rincian,belanja,lra,222
+5.2.02.06.005,Belanja Modal Peralatan Personal Computer,0,rincian,belanja,lra,222
+5.2.02.06.006,Belanja Modal Peralatan Jaringan,0,rincian,belanja,lra,222
+5.2.02.06.007,Belanja Modal Peralatan Komputer Lainnya,0,rincian,belanja,lra,222
+5.2.02.07,Belanja Modal Alat Pelindung,0,rincian objek,belanja,lra,181
+5.2.02.07.001,Belanja Modal Alat Pelindung,0,rincian,belanja,lra,230
+5.2.02.08,Belanja Modal Rambu-Rambu,0,rincian objek,belanja,lra,181
+5.2.02.08.001,Belanja Modal Rambu-Rambu,0,rincian,belanja,lra,232
+5.2.02.09,Belanja Modal Peralatan Olahraga,0,rincian objek,belanja,lra,181
+5.2.02.09.001,Belanja Modal Peralatan Olahraga,0,rincian,belanja,lra,234
+5.2.03,Belanja Gedung dan Bangunan,0,jenis,belanja,lra,177
+5.2.03.01,Belanja Modal Bangunan Gedung,0,rincian objek,belanja,lra,236
+5.2.03.01.001,Belanja Modal Bangunan Gedung Tempat Kerja,0,rincian,belanja,lra,237
+5.2.03.01.002,Belanja Modal Bangunan Gedung Kantor,0,rincian,belanja,lra,237
+5.2.03.01.003,Belanja Modal Bangunan Gedung Instalasi,0,rincian,belanja,lra,237
+5.2.03.01.004,Belanja Modal Bangunan Kesehatan,0,rincian,belanja,lra,237
+5.2.03.01.005,Belanja Modal Bangunan Gedung Tempat Olahraga,0,rincian,belanja,lra,237
+5.2.03.01.006,Belanja Modal Bangunan Terbuka,0,rincian,belanja,lra,237
+5.2.03.01.007,Belanja Modal Bangunan Gedung Tempat Kerja Lainnya,0,rincian,belanja,lra,237
+5.2.03.01.008,Belanja Modal Bangunan Fasilitas Umum,0,rincian,belanja,lra,237
+5.2.03.01.009,Belanja Modal Bangunan Parkir,0,rincian,belanja,lra,237
+5.2.03.01.010,Belanja Modal Taman,0,rincian,belanja,lra,237
+5.2.03.02,Belanja Modal Tugu Titik Kontrol/Pasti,0,rincian objek,belanja,lra,236
+5.2.03.02.001,Belanja Modal Pagar,0,rincian,belanja,lra,248
+5.2.03.02.002,Belanja Modal Tugu/Tanda Batas Lainnya,0,rincian,belanja,lra,248
+5.2.04,"Belanja Jalan, Irigasi dan Jaringan",0,jenis,belanja,lra,177
+5.2.04.01,Belanja Modal Jalan,0,rincian objek,belanja,lra,251
+5.2.04.01.001,Belanja Modal Jalan,0,rincian,belanja,lra,252
+5.2.04.02,Belanja Modal Jembatan,0,rincian objek,belanja,lra,251
+5.2.04.02.001,Belanja Modal Jembatan,0,rincian,belanja,lra,254
+5.2.04.03,Belanja Modal Bangunan Air,0,rincian objek,belanja,lra,251
+5.2.04.03.001,Belanja Modal Bangunan Air,0,rincian,belanja,lra,256
+5.2.04.04,Belanja Modal Instalasi,0,rincian objek,belanja,lra,254
+5.2.04.04.001,Belanja Modal Instalasi Air Kotor,0,rincian,belanja,lra,258
+5.2.04.05,Belanja Modal Jaringan,0,rincian objek,belanja,lra,254
+5.2.04.05.001,Belanja Modal Jaringan Listrik,0,rincian,belanja,lra,260
+5.2.04.05.002,Belanja Modal Jaringan Telpon,0,rincian,belanja,lra,260
+5.2.04.05.003,Belanja Modal Jaringan Gas,0,rincian,belanja,lra,260
+5.2.04.05.004,Belanja Modal Jaringan Distribusi,0,rincian,belanja,lra,260
+5.2.05,Belanja Aset Tetap Lainnya,0,jenis,belanja,lra,177
+5.2.05.01,Belanja Modal Bahan Perpustakaan,0,rincian objek,belanja,lra,265
+5.2.05.01.001,Belanja Modal Buku,0,rincian,belanja,lra,266
+5.2.05.02,Belanja Modal Aset Tak berwujud,0,rincian objek,belanja,lra,265
+5.2.05.02.001,Belanja Modal Software,0,rincian,belanja,lra,268

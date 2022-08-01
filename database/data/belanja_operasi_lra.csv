@@ -1,0 +1,162 @@
+kode,name,root,report,type,group,parent_id
+5,Belanja BLUD,1,induk,belanja,lra,
+5.1,Belanja Operasi,0,kelompok,belanja,lra,16
+5.1.01,Belanja Pegawai,0,jenis,belanja,lra,17
+5.1.01.01,Belanja Jasa Pelayanan Bagi ASN,0,rincian objek,belanja,lra,18
+5.1.01.01.001,Belanja Jasa Pelayanan Bagi ASN,0,rincian,belanja,lra,19
+5.1.01.02,Honorarium,0,rincian objek,belanja,lra,18
+5.1.01.02.001,Honorarium Penanggungjawaban Pengelolaan Keuangan BLUD,0,rincian,belanja,lra,21
+5.1.01.02.002,Honorarium Pengadaan Barang/jasa,0,rincian,belanja,lra,21
+5.1.01.02.003,Honorarium Pengelolaan BMD yang Menghasilkan Pendapatan,0,rincian,belanja,lra,21
+5.1.01.03,Tunjangan BLUD,0,rincian objek,belanja,lra,18
+5.1.01.03.001,Tunjangan Pengabdian,0,rincian,belanja,lra,25
+5.1.01.04,Iuran Asuransi,0,rincian objek,belanja,lra,18
+5.1.01.04.001,Iuran Tunjangan Hari Tua,0,rincian,belanja,lra,27
+5.1.01.04.002,Iuran Tunjangan Kesehatan,0,rincian,belanja,lra,27
+5.1.01.04.003,Iuran Tunjangan Kecelakaan Kerja,0,rincian,belanja,lra,27
+5.1.01.04.004,Iuran Tunjangan Kematian,0,rincian,belanja,lra,27
+5.1.02,Belanja Barang dan Jasa,0,jenis,belanja,lra,17
+5.1.02.01,Belanja Pakai Habis,0,rincian objek,belanja,lra,32
+5.1.02.01.001,Belanja Bahan-Bahan Bangunan dan Konstruksi,0,rincian,belanja,lra,33
+5.1.02.01.002,Belanja Bahan-Bahan Kimia,0,rincian,belanja,lra,33
+5.1.02.01.003,Belanja Bahan-Bahan Bakar dan Pelumas,0,rincian,belanja,lra,33
+5.1.02.01.004,Belanja Bahan-Bahan Baku,0,rincian,belanja,lra,33
+5.1.02.01.005,Belanja Bahan-Bahan/Bibit Tanaman,0,rincian,belanja,lra,33
+5.1.02.01.006,Belanja Bahan-Isi Tabung Pemadam Kebakaran,0,rincian,belanja,lra,33
+5.1.02.01.007,Belanja Bahan-Isi Tabung Gas,0,rincian,belanja,lra,33
+5.1.02.01.008,Belanja Bahan-Bahan Lainnya,0,rincian,belanja,lra,33
+5.1.02.01.009,Belanja Suku Cadang-Suku Cadang Alat Angkutan,0,rincian,belanja,lra,33
+5.1.02.01.010,Belanja Suku Cadang-Suku Cadang Lainnya,0,rincian,belanja,lra,33
+5.1.02.01.011,Belanja Alat/Bahan untuk Kegiatan Kantor-Alat Tulis Kantor,0,rincian,belanja,lra,33
+5.1.02.01.012,Belanja Alat/Bahan untuk Kegiatan Kantor-Kertas dan Cover,0,rincian,belanja,lra,33
+5.1.02.01.013,Belanja Alat/Bahan untuk Kegiatan Kantor- Bahan Cetak,0,rincian,belanja,lra,33
+5.1.02.01.014,Belanja Alat/Bahan untuk Kegiatan Kantor-Benda Pos,0,rincian,belanja,lra,33
+5.1.02.01.015,Belanja Alat/Bahan untuk Kegiatan Kantor-Bahan Komputer,0,rincian,belanja,lra,33
+5.1.02.01.016,Belanja Alat/Bahan untuk Kegiatan Kantor-Perabot Kantor,0,rincian,belanja,lra,33
+5.1.02.01.017,Belanja Alat/Bahan untuk Kegiatan Kantor-Alat Listrik,0,rincian,belanja,lra,33
+5.1.02.01.018,Belanja Alat/Bahan untuk Kegiatan Kantor-Perlengkapan Dinas,0,rincian,belanja,lra,33
+5.1.02.01.019,Belanja Alat/Bahan untuk Kegiatan Kantor-Perlengkapan Pendukung Olahraga,0,rincian,belanja,lra,33
+5.1.02.01.020,Belanja Alat/Bahan untuk Kegiatan Kantor- Suvenir/Cendera Mata,0,rincian,belanja,lra,33
+5.1.02.01.021,Belanja Alat/Bahan untuk Kegiatan Kantor-Alat/Bahan untuk Kegiatan Kantor Lainnya,0,rincian,belanja,lra,33
+5.1.02.01.022,Belanja Obat-Obatan-Obat,0,rincian,belanja,lra,33
+5.1.02.01.023,Belanja Persediaan untuk Dijual/Diserahkan-Persediaan untuk Dijual/Diserahkan kepada Masyarakat,0,rincian,belanja,lra,33
+5.1.02.01.024,Belanja Persediaan untuk Dijual/Diserahkan-Persediaan untuk Dijual/Diserahkan Lainnya,0,rincian,belanja,lra,33
+5.1.02.01.025,Belanja Makanan dan Minuman Rapat,0,rincian,belanja,lra,33
+5.1.02.01.026,Belanja Makanan dan Minuman Jamuan Tamu,0,rincian,belanja,lra,33
+5.1.02.01.027,Belanja Makanan dan Minuman Pasien,0,rincian,belanja,lra,33
+5.1.02.01.028,Belanja Pakaian Dinas,0,rincian,belanja,lra,33
+5.1.02.01.029,Belanja Pakaian Pelatihan Kerja,0,rincian,belanja,lra,33
+5.1.02.01.030,Belanja Pakaian Olahraga,0,rincian,belanja,lra,33
+5.1.02.01.031,Belanja Pakaian Batik Tradisional,0,rincian,belanja,lra,33
+5.1.02.01.032,Belanja Alat Kesehatan Pakai Habis,0,rincian,belanja,lra,33
+5.1.02.01.033,Belanja Alat Kedokteran Pakai Habis,0,rincian,belanja,lra,33
+5.1.02.01.034,Belanja Alat Labolatorium Pakai Habis,0,rincian,belanja,lra,33
+5.1.02.02,Belanja Barang Tak Habis Pakai,0,rincian objek,belanja,lra,32
+5.1.02.02.001,Belanja Pipa-Pipa Plastik PVC (UPVC),0,rincian,belanja,lra,68
+5.1.02.03,Belanja Jasa,0,rincian objek,belanja,lra,32
+5.1.02.03.001,"Honorarium Narasumber atau Pembahas, Moderator, Pembawa Acara, dan Panitia",0,rincian,belanja,lra,70
+5.1.02.03.002,Honorarium Tim Pelaksana Kegiatan,0,rincian,belanja,lra,70
+5.1.02.03.003,Honorarium Tim Pelaksana Kegiatan,0,rincian,belanja,lra,70
+5.1.02.03.004,Honorarium Penyelenggaraan Kegiatan Pendidikan dan Pelatihan,0,rincian,belanja,lra,70
+5.1.02.03.005,Belanja Jasa Tenaga Kesehatan,0,rincian,belanja,lra,70
+5.1.02.03.006,Belanja Jasa Tenaga Laboratorium,0,rincian,belanja,lra,70
+5.1.02.03.007,Belanja Jasa Tenaga Penanganan Prasarana dan Sarana Umum,0,rincian,belanja,lra,70
+5.1.02.03.008,"Belanja Jasa Tenaga Ketenteraman, Ketertiban Umum, dan Perlindungan Masyarakat",0,rincian,belanja,lra,70
+5.1.02.03.009,Belanja Jasa Tenaga Pemadam Kebakaran dan Penyelamatan,0,rincian,belanja,lra,70
+5.1.02.03.010,Belanja Jasa Tenaga Penanganan Sosial,0,rincian,belanja,lra,70
+5.1.02.03.011,Belanja Jasa Tenaga Penanganan Sosial,0,rincian,belanja,lra,70
+5.1.02.03.012,Belanja Jasa Tenaga Kesenian dan Kebudayaan,0,rincian,belanja,lra,70
+5.1.02.03.013,Belanja Jasa Tenaga Administrasi,0,rincian,belanja,lra,70
+5.1.02.03.014,Belanja Jasa Tenaga Operator Komputer,0,rincian,belanja,lra,70
+5.1.02.03.015,Belanja Jasa Tenaga Pelayanan Umum,0,rincian,belanja,lra,70
+5.1.02.03.016,Belanja Jasa Tenaga Ahli,0,rincian,belanja,lra,70
+5.1.02.03.017,Belanja Jasa Tenaga Kebersihan,0,rincian,belanja,lra,70
+5.1.02.03.018,Belanja Jasa Tenaga Keamanan,0,rincian,belanja,lra,70
+5.1.02.03.019,Belanja Jasa Tenaga Supir,0,rincian,belanja,lra,70
+5.1.02.03.020,Belanja Jasa Tenaga Supir,0,rincian,belanja,lra,70
+5.1.02.03.021,Belanja Jasa Audit/Surveillance ISO,0,rincian,belanja,lra,70
+5.1.02.03.022,Belanja Jasa Juri Perlombaan/Pertandingan,0,rincian,belanja,lra,70
+5.1.02.03.023,Belanja Jasa Tenaga Informasi dan Teknologi,0,rincian,belanja,lra,70
+5.1.02.03.024,Belanja Jasa Tenaga Informasi dan Teknologi,0,rincian,belanja,lra,70
+5.1.02.03.025,Belanja Jasa Konversi Aplikasi/Sistem Informasi,0,rincian,belanja,lra,70
+5.1.02.03.026,Belanja Jasa Penyelenggaraan Acara,0,rincian,belanja,lra,70
+5.1.02.03.027,Belanja Jasa Kontribusi Asosiasi,0,rincian,belanja,lra,70
+5.1.02.03.028,"Belanja Jasa Pencucian Pakaian, Alat Kesenian dan Kebudayaan, serta Alat Rumah Tangga",0,rincian,belanja,lra,70
+5.1.02.03.029,Belanja Jasa Kalibrasi,0,rincian,belanja,lra,70
+5.1.02.03.030,Belanja Jasa Pengolahan Sampah,0,rincian,belanja,lra,70
+5.1.02.03.031,Belanja Jasa Pengukuran Tanah,0,rincian,belanja,lra,70
+5.1.02.03.032,"Belanja Jasa Iklan/Reklame, Film, dan Pemotretan",0,rincian,belanja,lra,70
+5.1.02.03.033,Belanja Tagihan Telepon,0,rincian,belanja,lra,70
+5.1.02.03.034,Belanja Tagihan Air,0,rincian,belanja,lra,70
+5.1.02.03.035,Belanja Tagihan Listrik,0,rincian,belanja,lra,70
+5.1.02.03.036,Belanja Langganan Jurnal/Surat Kabar/Majalah,0,rincian,belanja,lra,70
+5.1.02.03.037,Belanja Kawat/Faksimili/Internet/TV Berlangganan,0,rincian,belanja,lra,70
+5.1.02.03.038,Belanja Paket/Pengiriman,0,rincian,belanja,lra,70
+5.1.02.03.039,"Belanja Pembayaran Pajak, Bea, dan Perizinan",0,rincian,belanja,lra,70
+5.1.02.03.040,Belanja Ganti Rugi kepada Pihak Ketiga Akibat Kecelakaan,0,rincian,belanja,lra,70
+5.1.02.03.041,Belanja Medical Check Up,0,rincian,belanja,lra,70
+5.1.02.04,Belanja Iuran Jaminan/Asuransi,0,rincian objek,belanja,lra,32
+5.1.02.04.001,Belanja Iuran Jaminan Kesehatan bagi Non ASN,0,rincian,belanja,lra,112
+5.1.02.04.002,Belanja Iuran Jaminan Kecelakaan Kerja bagi Non ASN,0,rincian,belanja,lra,112
+5.1.02.04.003,Belanja Iuran Jaminan Kematian bagi NON ASN,0,rincian,belanja,lra,112
+5.1.02.05,Belanja Sewa Tanah,0,rincian objek,belanja,lra,32
+5.1.02.05.001,Belanja Sewa Tanah,0,rincian,belanja,lra,116
+5.1.02.06,Belanja Sewa Peralatan dan Mesin,0,rincian objek,belanja,lra,32
+5.1.02.06.001,Belanja Sewa Electric Generating Set,0,rincian,belanja,lra,118
+5.1.02.06.002,Belanja Sewa Kendaraan Bermotor Penumpang,0,rincian,belanja,lra,118
+5.1.02.06.003,Belanja Sewa Kendaraan Bermotor Angkutan Barang,0,rincian,belanja,lra,118
+5.1.02.06.004,Belanja Sewa Alat Kantor Lainnya,0,rincian,belanja,lra,118
+5.1.02.06.005,Belanja Sewa Mebel,0,rincian,belanja,lra,118
+5.1.02.06.006,Belanja Sewa Alat Pendingin,0,rincian,belanja,lra,118
+5.1.02.06.007,Belanja Sewa Peralatan Studio Audio,0,rincian,belanja,lra,118
+5.1.02.06.008,Belanja Sewa Peralatan Cetak,0,rincian,belanja,lra,118
+5.1.02.06.009,Belanja Sewa Peralatan Umum,0,rincian,belanja,lra,118
+5.1.02.06.010,Belanja Sewa Personal Computer,0,rincian,belanja,lra,118
+5.1.02.06.011,Belanja Sewa Peralatan dan Mesin lainnya,0,rincian,belanja,lra,118
+5.1.02.07,Belanja Sewa Gedung dan Bangunan,0,rincian objek,belanja,lra,32
+5.1.02.07.001,Belanja Sewa Bangunan Gedung Kantor,0,rincian,belanja,lra,130
+5.1.02.07.002,Belanja Sewa Bangunan Gedung Tempat Pertemuan,0,rincian,belanja,lra,130
+5.1.02.07.003,Belanja Sewa Mess/Wisma/Bungalow/Tempat Peristirahatan,0,rincian,belanja,lra,130
+5.1.02.07.004,Belanja Sewa Hotel,0,rincian,belanja,lra,130
+5.1.02.08,Belanja Jasa Konsultansi Konstruksi,0,rincian objek,belanja,lra,32
+5.1.02.08.001,Belanja Jasa Konsultansi Perencanaan,0,rincian,belanja,lra,135
+5.1.02.08.002,Belanja Jasa Konsultansi Pengawasan,0,rincian,belanja,lra,135
+5.1.02.08.003,Belanja Jasa Konsultansi Lainnya,0,rincian,belanja,lra,135
+5.1.02.09,Belanja Jasa Konsultansi Non Konstruksi,0,rincian objek,belanja,lra,32
+5.1.02.09.001,Belanja Jasa Konsultansi Berorientasi Bidang-Kesehatan,0,rincian,belanja,lra,139
+5.1.02.09.002,Belanja Jasa Konsultansi Berorientasi Bidang lainnya,0,rincian,belanja,lra,139
+5.1.02.10,Belanja Beasiswa Pendidikan,0,rincian objek,belanja,lra,32
+5.1.02.10.001,Belanja Beasiswa Pendidikan,0,rincian,belanja,lra,142
+5.1.02.11,"Belanja Kursus/Pelatihan, Sosialisasi, Bimbingan Teknis serta Pendidikan dan Pelatihan",0,rincian objek,belanja,lra,32
+5.1.02.11.001,Belanja Kursus Singkat/Pelatihan,0,rincian,belanja,lra,144
+5.1.02.11.002,Belanja Bimbingan Teknis,0,rincian,belanja,lra,144
+5.1.02.11.003,Belanja Pendidikan dan Pelatihan,0,rincian,belanja,lra,144
+5.1.02.12,Belanja Jasa Pelayanan Bagi NON ASN,0,rincian objek,belanja,lra,32
+5.1.02.12.001,Belanja Jasa Pelayanan Bagi NON ASN,0,rincian,belanja,lra,148
+5.1.02.13,Belanja Pemeliharaan,0,rincian objek,belanja,lra,32
+5.1.02.13.001,Belanja Pemeliharaan Tanah,0,rincian,belanja,lra,150
+5.1.02.13.002,Belanja Pemeliharaan Peralatan dan Mesin,0,rincian,belanja,lra,150
+5.1.02.13.003,Belanja Pemeliharaan Gedung dan Bangunan,0,rincian,belanja,lra,150
+5.1.02.13.004,"Belanja Pemeliharaan Jalan, Jaringan dan Irigasi",0,rincian,belanja,lra,150
+5.1.02.13.005,Belanja Pemeliharaan Aset Tetap Lainnya,0,rincian,belanja,lra,150
+5.1.02.14,Belanja Perjalanan Dinas,0,rincian objek,belanja,lra,32
+5.1.02.14.001,Belanja Perjalanan Dinas Biasa,0,rincian,belanja,lra,156
+5.1.02.14.002,Belanja Perjalanan Dinas Dalam Kota,0,rincian,belanja,lra,156
+5.1.02.14.003,Belanja Perjalanan Dinas Paket Metting Dalam Kota,0,rincian,belanja,lra,156
+5.1.02.14.004,Belanja Perjalanan Dinas Paket Metting Luar Kota,0,rincian,belanja,lra,156
+5.1.02.15,Belanja Perjalanan Dinas Luar Negeri,0,rincian objek,belanja,lra,32
+5.1.02.15.001,Belanja Perjalanan Dinas Luar Negeri,0,rincian,belanja,lra,161
+5.1.02.16,Belanja Uang dan/atau Jasa untuk Diberikan kepada Pihak Ketiga/Pihak Lain/Masyarakat,0,rincian objek,belanja,lra,32
+5.1.02.16.001,Belanja Hadiah yang Bersifat Perlombaan,0,rincian,belanja,lra,163
+5.1.02.16.002,Belanja Penghargaan atas Suatu Prestasi,0,rincian,belanja,lra,163
+5.1.02.16.003,Belanja Beasiswa,0,rincian,belanja,lra,163
+5.1.02.17,Belanja Jasa yang Diberikan kepada Pihak Ketiga/Pihak Lain/Masyarakat,0,rincian objek,belanja,lra,32
+5.1.02.17.001,Belanja Jasa yang Diberikan kepada Pihak Ketiga/Pihak Lain,0,rincian,belanja,lra,167
+5.1.02.17.002,Belanja Jasa yang Diberikan kepada Masyarakat,0,rincian,belanja,lra,167
+5.1.03,Belanja Bunga,0,jenis,belanja,lra,17
+5.1.03.01,Belanja Bunga,0,rincian objek,belanja,lra,170
+5.1.03.01.001,Belanja Bunga Pinjaman,0,rincian,belanja,lra,171
+5.1,Belanja Hibah,0,kelompok,belanja,lra,16
+5.1.04,Belanja Hibah,0,jenis,belanja,lra,173
+5.1.04.01,Belanja Hibah ,0,rincian objek,belanja,lra,174
+5.1.04.01.001,Belanja Hibah pada Organisasi/Lembaga,0,rincian,belanja,lra,175

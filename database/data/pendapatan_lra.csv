@@ -1,0 +1,16 @@
+kode,name,root,report,type,group,parent_id
+4,Pendapatan BLUD,1,induk,pendapatan,lra,
+4.1,Pendapatan Jasa Layanan,0,kelompok,pendapatan,lra,1
+4.1.01,Pendapatan Jasa Layanan,0,jenis,pendapatan,lra,2
+4.1.01.01,Pendapatan Jasa Layanan,0,rincian objek,pendapatan,lra,3
+4.1.01.01.001,Pendapatan Jasa Layanan,0,rincian,pendapatan,lra,4
+4.2,Pendapatan Hibah,0,kelompok,pendapatan,lra,1
+4.3.01,Pendapatan Hibah,0,jenis,pendapatan,lra,6
+4.3.01.01,Pendapatan Hibah,0,rincian objek,pendapatan,lra,7
+4.3.01.01.001,Pendapatan Hibah,0,rincian,pendapatan,lra,8
+4.3,Hasil Kerjasama ,0,kelompok,pendapatan,lra,1
+4.3.01,Hasil Kerjasama,0,jenis,pendapatan,lra,10
+4.4,APBD,0,kelompok,pendapatan,lra,1
+4.4.01,APBD,0,jenis,pendapatan,lra,12
+4.5,Lain-lain Pendapatan BLUD yang Sah,0,kelompok,pendapatan,lra,1
+4.5.01,Lain-lain Pendapatan BLUD yang Sah,0,jenis,pendapatan,lra,15
