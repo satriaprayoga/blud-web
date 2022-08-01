@@ -1,5 +1,6 @@
 import React, { useEffect,useState } from 'react'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom';
 
 import MainCard from '../../ui-component/cards/MainCard'
 import SubCard from '../../ui-component/cards/SubCard'
@@ -17,7 +18,7 @@ const Accounts = ({ report }) => {
         setAccounts([]);
         try {
             setInduk(event.target.value);
-            let response = await api.get(`accounts/group/${report}/type/${event.target.value}`);
+            let response = await api.get(`accounts/group/${report.toLowerCase()}/type/${event.target.value}`);
             setAccounts(response.data.accounts);
             console.log(response.data.accounts);
         } catch (error) {
@@ -27,14 +28,14 @@ const Accounts = ({ report }) => {
 
     useEffect(()=>{
        const onPageLoad=async()=>{
-        let response = await api.get(`accounts/group/lra/type`);
+        let response = await api.get(`accounts/group/${report.toLowerCase()}/type`);
         setAccounts(response.data.accounts);
        }
        onPageLoad();
     },[])
 
     return (
-        <MainCard title={`Rekening ${report}`}
+        <MainCard title={`Rekening ${report.toUpperCase()}`}
             secondary=
             {
                 <FormControl sx={{ minWidth: 150 }}>
@@ -77,8 +78,8 @@ const Accounts = ({ report }) => {
                                 </TableHead>
                                 <TableBody>
                                     {accounts.map((acc)=>(
-                                       <TableRow key={acc.kode}>
-                                            <TableCell><a href="/">{acc.kode}</a></TableCell>
+                                       <TableRow key={acc.id}>
+                                            <TableCell><Link to={`/accounts/${acc.id}`}>{acc.kode}</Link></TableCell>
                                             <TableCell>{acc.name}</TableCell>
                                             <TableCell>{acc.group.toUpperCase()}</TableCell>
                                             <TableCell>{acc.report}</TableCell>
