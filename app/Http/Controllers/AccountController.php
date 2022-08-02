@@ -60,7 +60,7 @@ class AccountController extends Controller
         }
         $account->children;
         $account->parent;
-        return response()->json(['acccount' => $account]);
+        return response()->json(['account' => $account]);
     }
 
     /**
