@@ -1,5 +1,11 @@
 import React from 'react'
+import { Field, Form, Formik } from 'formik'
 import PropTypes from 'prop-types'
+import api from '../../../utils/api'
+import { Dialog } from '@mui/material'
+import MainCard from '../../../ui-component/cards/MainCard'
+import { object } from 'yup'
+import { string } from 'yup'
 
 const initialValues = {
     "kode": "",
@@ -12,8 +18,30 @@ const initialValues = {
 }
 
 const AccountForm = ({open, handleClose, afterSave}) => {
+
+  const handleSave=async (values) =>{
+    try {
+      await api.post('accounts',values);
+
+    } catch (error) {
+      
+    }
+    afterSave();
+  }
   return (
-    <div>AccountForm</div>
+    <Dialog open={open} onClose={handleClose}>
+      <MainCard title='Tambah Kode Rekening'>
+        <Formik initialValues={initialValues}>
+                validationSchema={object(
+                  {
+                    kode:string().required("Kode harus diisi"),
+                    name:string().required("uraian harus diisi").max(255,'Max.255 karakter'),
+                    report:string().required("jenis")
+                  }
+                )}
+        </Formik>
+      </MainCard>
+    </Dialog>
   )
 }
 
