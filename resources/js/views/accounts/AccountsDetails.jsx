@@ -50,7 +50,7 @@ const AccountsDetails = props => {
             <Typography variant='h4'>: {account.name}</Typography>
           </Grid>
           <Grid item xs={4} align='right'>
-            <Typography variant='h4'>Jenis</Typography>
+            <Typography variant='h4'>Level</Typography>
 
           </Grid>
           <Grid item xs={8} align='left' style={{ display: "flex", justifyContent: "flex-start" }}>
