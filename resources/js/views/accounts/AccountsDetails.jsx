@@ -1,19 +1,70 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { useParams } from 'react-router'
+import { useParams, useNavigate } from 'react-router'
 import api from '../../utils/api';
 import { useState } from 'react';
+import { IconPlus, IconEdit, IconTrash } from '@tabler/icons';
 import MainCard from '../../ui-component/cards/MainCard';
-import { Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import SubCard from '../../ui-component/cards/SubCard';
 import { Link } from 'react-router-dom';
+import FormAction from '../../ui-component/cards/FormAction';
+import AccountForm from './forms/AccountForm';
+import EditForm from './forms/EditForm';
 
 const AccountsDetails = props => {
   const { id } = useParams();
+  const navigation = useNavigate();
 
   const [account, setAccount] = useState({})
   const [children, setChildren] = useState([]);
   const [type, setType] = useState({})
+
+  const [open, setOpen] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
+
+  const [deleteOpen, setDeleteOpen] = useState(false);
+
+  const handleClick = () => {
+    console.log('handle click')
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleEditClick = () => {
+    setOpenEdit(true);
+  }
+
+  const handleEditClose = () => {
+    setOpenEdit(false);
+  };
+
+  const handleDeleteClose = () => {
+    setDeleteOpen(false);
+  }
+
+  const handleDeleteClick = () => {
+    setDeleteOpen(true);
+  }
+
+  const handleDelete = async () => {
+    try {
+      const response = api.delete('accounts/' + id);
+
+    } catch (error) {
+
+    }
+    handleDeleteClose();
+    navigation("/accounts/lra");
+  }
+
+  const afterSave = () => {
+    loadAccount();
+  }
+
 
   const loadAccount = async () => {
     setAccount({});
@@ -33,7 +84,16 @@ const AccountsDetails = props => {
 
   return (
     <>
-      <MainCard title={`Rekening ${type.toString().toUpperCase()}`}>
+      <MainCard title={`Rekening ${type.toString().toUpperCase()}`}
+        secondary={<FormAction title="Tambah Kode Rekening" 
+          icon={<IconPlus />} 
+          handleClick={handleClick} 
+          titleEdit="Edit Kode Rekening" 
+          iconEdit={<IconEdit />} 
+          handleEdit={handleEditClick} 
+          titleDelete="Hapus Kode Rekening" 
+          iconDelete={<IconTrash/>} 
+          handleDelete={handleDeleteClick}/>}>
         <Grid container spacing={2}>
           <Grid item xs={4} align='right'>
             <Typography variant='h4'>Kode</Typography>
@@ -92,7 +152,7 @@ const AccountsDetails = props => {
                         <TableCell>Kelompok</TableCell>
                       </TableRow>
                     </TableHead>
-                    <TableBody  striped>
+                    <TableBody striped>
                       {children.map((acc) => (
                         <TableRow key={acc.id}>
                           <TableCell><Link to={`/accounts/${acc.id}`}>{acc.kode}</Link></TableCell>
@@ -109,6 +169,23 @@ const AccountsDetails = props => {
             </Grid>
           }
         </Grid>
+        <AccountForm open={open} handleClose={handleClose} afterSave={loadAccount} parentAccount={account} />
+        <EditForm open={openEdit} handleClose={handleEditClose} afterSave={loadAccount} initialValues={account} />
+        <Dialog open={deleteOpen}>
+          <MainCard title="Hapus Akun">
+            <DialogContent>
+              <DialogContentText id="alert-dialog-description">
+                Menghapus Akun {account.name}. Anda Yakin?
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleDelete}>Ya, Hapus</Button>
+              <Button onClick={handleDeleteClose} autoFocus>
+                Batal
+              </Button>
+            </DialogActions>
+          </MainCard>
+        </Dialog>
       </MainCard>
     </>
   )

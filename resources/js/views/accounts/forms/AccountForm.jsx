@@ -18,25 +18,40 @@ const AccountForm = ({ open, handleClose, afterSave, parentAccount }) => {
     try {
       const parent_id = parentAccount.id;
       const parentReport = parentAccount.report;
-      switch (parentReport.report) {
+      
+      const payload={
+        'name':values.name,
+        'kode':values.kode
+      }
+      
+      switch (parentAccount.report) {
         case 'induk':
-          values.report = 'kelompok';
+          payload.report = 'kelompok';
           break;
+         
         case 'kelompok':
-          values.report = 'jenis';
+          payload.report = 'jenis';
           break;
+        
+        case 'jenis':
+          payload.report = 'rincian objek';
+          break;
+        
         case 'rincian objek':
-          values.report = 'rincian';
+          payload.report = 'rincian';
           break;
+       
         default:
-          values.report = 'rincian';
+         
           break;
       }
-      values.type = parent.type;
-      values.group = parent.group;
-      values.parent_id = parent_id;
-      await api.post('accounts', values);
-
+      payload.type = parentAccount.type;
+      payload.group = parentAccount.group;
+      payload.parent_id = parent_id;
+      payload.root=false;
+      console.log(payload);
+      const response=await api.post('accounts', payload);
+      console.log(response.data.account)
     } catch (error) {
 
     }
@@ -54,6 +69,7 @@ const AccountForm = ({ open, handleClose, afterSave, parentAccount }) => {
           )}
           onSubmit={(values, formikHelpers) => {
             console.log(values);
+            handleSave(values);
             formikHelpers.resetForm();
             handleClose();
           }}

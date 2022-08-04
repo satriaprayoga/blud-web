@@ -35,8 +35,7 @@ class AccountController extends Controller
                 'root'=>$request->root,
                 'report'=>$request->report,
                 'type'=>$request->type,
-                'group'=>$request->jenis,
-                'nilai'=>0.00,
+                'group'=>$request->group,
                 'parent_id'=>$request->parent_id
             ]
         );
@@ -78,7 +77,7 @@ class AccountController extends Controller
                 'errors'=>$validated->errors()
             ],422);
         }
-        $account=Account::where('id',$id)->firstOrFails();
+        $account=Account::find($id);
         $account->name=$request->name;
         $account->kode=$request->kode;
         $account=$account->save();
@@ -94,12 +93,12 @@ class AccountController extends Controller
     public function destroy($id)
     {
         $account=Account::where('id',$id)->firstOrFail();
-        if(!empty($account->children)){
+        if(sizeof($account->children) > 0){
             return response()->json([
                 'error'=>'Akun memilik sub akun, hapus terlebih dahulu'
             ],422); 
         }
-        Account::destroy($id);
+        $account->delete();
         return response()->json(['message'=>'Akun berhasil di hapus']);
     }
 
@@ -121,7 +120,7 @@ class AccountController extends Controller
 
     protected function accountValidator(Request $request)
     {
-        return Validator::make($request->only(['kode','name']), [
+        return Validator::make($request->all(), [
             'kode' => 'required|string|max:255',
             'name' => 'required|string|max:255',
 
