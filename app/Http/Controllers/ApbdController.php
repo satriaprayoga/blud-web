@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Apbd;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,7 +18,7 @@ class ApbdController extends Controller
     {
         //
         $apbd=Apbd::all();
-        return response()->json(['apbd'=>$apbd]);
+        return response()->json(['apbds'=>$apbd]);
     }
 
     /**
@@ -33,7 +34,13 @@ class ApbdController extends Controller
         if($validated->fails()){
             return response()->json(['errors'=>$validated->errors()],422);
         }
-        $apbd=Apbd::create($request->all());
+        $apbd=Apbd::create([
+            'tahun'=>Carbon::create($request->tahun)->format('Y'),
+            'tahapan'=>$request->tahapan,
+            'perda'=>$request->perda,
+            'perkada'=>$request->perkada,
+            'status'=>$request->status
+        ]);
         return response()->json(['apbd'=>$apbd]);
         
     }
@@ -83,8 +90,7 @@ class ApbdController extends Controller
             'tahapan'=>'required',
             'perda'=>'required',
             'perkada'=>'required',
-            'status'=>'required',
-            'active'=>'required'
+            'status'=>'required'
 
         ]);
     }

@@ -1,39 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import MainCard from '../../ui-component/cards/MainCard'
-import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material'
-import { Formik, useFormik } from 'formik'
-import { date, object } from 'yup'
-import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
-import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
-
-const initialValues = {
-    "tahun":new Date().getFullYear(),
-}
+import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material';
+import { IconPlus } from '@tabler/icons';
+import FormAction from '../../ui-component/cards/FormAction'
+import ApbdForm from './forms/ApbdForm'
+import api from '../../utils/api'
+import { useEffect } from 'react'
 
 const Apbd = props => {
+    const [open, setOpen] = useState(false);
+    const [apbds, setApbds] = useState([]);
 
-    const formik=useFormik({
-        initialValues:{
-            'tahun':new Date().getFullYear(),
-        },
-        validationSchema:object({
-            tahun:date().min(new Date().getFullYear(),"Tahun harus lebih atau sama dengan tahun ini").required("Tahun harus diisi")
-        }),
-        onSubmit:values=>{
-            console.log(values);
+    const loadApbds = async () => {
+        try {
+            const response = await api('apbd');
+            setApbds(response.data.apbds);
+        } catch (error) {
+
         }
-    });
+    }
+
+    const handleClick = () => {
+        console.log('handle click')
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const afterSave = () => {
+        console.log("after save");
+    }
+
+    useEffect(() => {
+        loadApbds();
+    }, [])
+
     return (
-        <MainCard title="APBD">
+        <MainCard title="APBD" secondary={<FormAction title="Tambah Unit" icon={<IconPlus />} handleClick={handleClick} />}>
             <Grid container>
-                <Grid xs={12}>
+                <Grid item xs={12}>
                     <TableContainer>
                         <Table>
                             <TableHead>
                                 <TableRow>
                                     <TableCell>Tahun</TableCell>
-                                    <TableCell>Tahapan</TableCell>
                                     <TableCell>Periode</TableCell>
                                     <TableCell>Perda</TableCell>
                                     <TableCell>Perbup</TableCell>
@@ -41,35 +54,22 @@ const Apbd = props => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                <TableRow>
-                                    <TableCell>2022</TableCell>
-                                    <TableCell>APBD 2022</TableCell>
-                                    <TableCell>Murni</TableCell>
-                                    <TableCell>No 8 Tahun 2022</TableCell>
-                                    <TableCell>No 69 Tahun 2022</TableCell>
-                                    <TableCell>final</TableCell>
-                                </TableRow>
+                                {apbds.map((apbd) => (
+                                    <TableRow key={apbd.id}>
+                                        <TableCell>{apbd.tahun}</TableCell>
+                                        <TableCell>{apbd.tahapan}</TableCell>
+                                        <TableCell>{apbd.perda}</TableCell>
+                                        <TableCell>{apbd.perkada}</TableCell>
+                                        <TableCell>{apbd.status == 0 ? 'Draft' : 'Final'}</TableCell>
+                                    </TableRow>
+                                ))}
                             </TableBody>
                         </Table>
                     </TableContainer>
                 </Grid>
-                <Grid xs={12}>
-                    <LocalizationProvider dateAdapter={AdapterMoment}>
-                        <DatePicker 
-                            label="tahun"
-                            views={['year']}
-                            name="tahun"
-                            value={formik.values.tahun}
-                            onChange={(value)=>formik.setFieldValue('tahun',Date.parse(value))}
-                            renderInput={(params)=>
-                                <TextField {...params} 
-                                error={Boolean(formik.errors.tahun) && Boolean(formik.touched.tahun)}
-                                helperText={Boolean(formik.touched.tahun) && formik.errors.tahun}/>}
-                            />
-                    </LocalizationProvider>
-                </Grid>
+
             </Grid>
-            
+            <ApbdForm open={open} handleClose={handleClose} afterSave={afterSave} />
         </MainCard>
     )
 }

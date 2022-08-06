@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('tahapan');
             $table->string('perda');
             $table->string('perkada');
-            $table->integer('status');
+            $table->integer('status')->default(0);
             $table->boolean('aktif')->default(false);
             $table->timestamps();
         });

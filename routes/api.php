@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ApbdController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SubunitController;
 use App\Http\Controllers\UnitController;
@@ -26,6 +27,7 @@ Route::get('/accounts/group/{group}/type/{type?}',[AccountController::class,'gro
 
 Route::apiResource('units',UnitController::class);
 Route::apiResource('subunits',SubunitController::class);
+Route::apiResource('apbd',ApbdController::class);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout',[AuthController::class,'logout']);
     Route::get('/me',[AuthController::class,'me']);
