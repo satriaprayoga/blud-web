@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('nama_sp2b');
             $table->string('nip_sp2b');
             $table->string('jabatan_sp2b');
-            $table->foreignId('unit_id')->constrained()->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('unit_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
