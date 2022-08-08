@@ -11,7 +11,12 @@ const Dpa = props => {
 
   const [year, setYear] = useState(new Date().getFullYear());
   const [units, setUnits] = useState([]);
-  const [unit, setUnit] = useState({})
+  const [unit, setUnit] = useState({});
+
+  const [type,setType]= useState('pendapatan');
+
+  const [subunits, setSubunits] = useState([]);
+  const [subunit, setSubunit] = useState({});
 
   const handleYearChange = async (event) => {
     setYear(event.target.value);
@@ -19,6 +24,22 @@ const Dpa = props => {
 
   const handleUnitChange = async (event) => {
     setUnit(event.target.value);
+    const selected = event.target.value;
+    try {
+      const response = await api.get('units/' + selected.id);
+      console.log(response.data.subunits);
+      setSubunits(response.data.subunits);
+    } catch (error) {
+
+    }
+  }
+
+  const handleSubunitChange = async (event)=>{
+    setSubunit(event.target.value);
+  }
+
+  const handleTypeChange = async (event)=>{
+    setType(event.target.value)
   }
 
   const loadUnits = async () => {
@@ -37,32 +58,49 @@ const Dpa = props => {
 
 
   return (
-    <MainCard title="Daftar DPA">
+    <MainCard title="Daftar DPA" 
+    secondary=
+    {
+        <FormControl sx={{ minWidth: 150 }}>
+            <InputLabel id="demo-simple-select-label">Jenis DPA</InputLabel>
+            <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={type}
+                label="Jenis DPA"
+                onChange={handleTypeChange}
+            >
+                <MenuItem value='pendapatan'>Pendapatan</MenuItem>
+                <MenuItem value='belanja'>Belanja</MenuItem>
+            </Select>
+        </FormControl>
+    }>
       <SubCard title="Unit Kerja">
         <Grid container>
-        <Grid item xs={12}>
-          <FormControl sx={{ minWidth: 250, margin: '10px' }}>
-            <InputLabel id="demo-simple-select-label">Tahun</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              label="Tahun"
-              value={year}
-              onChange={handleYearChange}
-            >
-              <MenuItem value={2022}>2022</MenuItem>
-              <MenuItem value={2021}>2021</MenuItem>
-              <MenuItem value={2020}>2020</MenuItem>
-            </Select>
-          </FormControl>
-        </Grid>
           <Grid item xs={12}>
-            <FormControl sx={{ minWidth: 250, margin: '10px' }}>
-              <InputLabel id="demo-simple-select-label">Unit Kerja</InputLabel>
+            <FormControl sx={{ minWidth: 250, marginLeft: '20px', marginTop:'10px' }}>
+              <InputLabel id="demo-simple-select-label">Tahun</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 label="Tahun"
+                value={year}
+                onChange={handleYearChange}
+              >
+                <MenuItem value={2022}>2022</MenuItem>
+                <MenuItem value={2021}>2021</MenuItem>
+                <MenuItem value={2020}>2020</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+          
+          <Grid item xs={12}>
+            <FormControl sx={{ minWidth: 400, marginLeft: '20px', marginTop:'10px'  }}>
+              <InputLabel id="demo-simple-select-label">Unit</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Unit"
                 value={unit}
                 onChange={handleUnitChange}
               >
@@ -72,6 +110,26 @@ const Dpa = props => {
               </Select>
             </FormControl>
           </Grid>
+
+          {
+            Object.keys(unit).length !== 0 && 
+            <Grid item xs={12}>
+            <FormControl sx={{ minWidth: 250, marginLeft: '20px', marginTop:'10px'  }}>
+              <InputLabel id="demo-simple-select-label">Sub Unit</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Sub Unit"
+                value={subunit}
+                onChange={handleSubunitChange}
+              >
+                {subunits.map((sub) => (
+                  <MenuItem value={sub} key={sub.id}>[{sub.kode}] {sub.nama}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          }
 
         </Grid>
       </SubCard>
