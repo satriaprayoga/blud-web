@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('dpas', function (Blueprint $table) {
             $table->id();
             $table->year('tahun');
-            $table->string('tahapan');
+            $table->string('tahapan')->default('M');
             $table->integer('status')->default(0);
             $table->string('no_dpa');
             $table->string('type');
