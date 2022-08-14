@@ -16,6 +16,7 @@ const AccountsDetails=Loadable(React.lazy(()=>import('../views/accounts/Accounts
 // anggaran routing
 const Apbd=Loadable(React.lazy(()=>import('../views/apbd/Apbd')));
 const Dpa=Loadable(React.lazy(()=>import('../views/dpa/Dpa')));
+const ViewDpa=Loadable(React.lazy(()=>import('../views/dpa/DpaDetails')));
 
 // dashboard routing
 const DashboardDefault = Loadable(React.lazy(() => import('../views/dashboard/Default')));
@@ -102,7 +103,16 @@ const MainRoutes = {
         },
         {
             path:'dpa',
-            element:<Dpa/>
+            children:[
+                {
+                    path:'',
+                    element:<Dpa/>
+                },
+                {
+                    path:":id",
+                    element:<ViewDpa/>
+                }
+            ]
         },
         {
             path: 'utils',

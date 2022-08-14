@@ -63,6 +63,7 @@ class SubunitController extends Controller
             return response()->json(['message'=>'Sub Unit tidak ditemukan'],404);
         }
         $subunit->unit;
+        $subunit->dpas;
         return response()->json(['subunit'=>$subunit]);
     }
 

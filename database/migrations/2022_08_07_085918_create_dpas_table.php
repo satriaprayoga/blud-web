@@ -20,10 +20,16 @@ return new class extends Migration
             $table->integer('status')->default(0);
             $table->string('no_dpa');
             $table->string('type');
-            $table->float('total',10,2)->default(0.00);
-            $table->float('total_after',10,2)->default(0.00);
+            $table->float('total',15,2)->default(0.00);
+            $table->float('total_after',15,2)->default(0.00);
             $table->boolean('aktif')->default(false);
+            $table->string('kegiatan')->nullable(true);
+            $table->string('kode_kegiatan')->nullable(true);
+            $table->string('subkegiatan')->nullable(true);
+            $table->string('kode_subkegiatan')->nullable(true);
+            $table->string('kode_rekening')->nullable(true);
             $table->foreignId('subunit_id')->constrained('subunits','id');
+            $table->timestamps();
         });
     }
 

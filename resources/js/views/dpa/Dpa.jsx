@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import MainCard from '../../ui-component/cards/MainCard'
-import { FormControl, Grid, InputLabel, MenuItem, Select } from '@mui/material'
+import { FormControl, Grid, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 import { useState } from 'react'
 import SubCard from '../../ui-component/cards/SubCard'
 import api from '../../utils/api'
@@ -10,6 +10,7 @@ import { IconPlus } from '@tabler/icons';
 import ApbdForm from '../apbd/forms/ApbdForm'
 import DpaForm from './form/DpaForm'
 import FormAction from '../../ui-component/cards/FormAction'
+import { Link } from 'react-router-dom'
 
 const Dpa = props => {
 
@@ -21,6 +22,8 @@ const Dpa = props => {
 
   const [subunits, setSubunits] = useState([]);
   const [subunit, setSubunit] = useState({});
+
+  const [dpas,setDpas]=useState([]);
 
   const [open, setOpen] = useState(false);
 
@@ -35,6 +38,7 @@ const Dpa = props => {
       const response = await api.get('units/' + selected.id);
       console.log(response.data.subunits);
       setSubunits(response.data.subunits);
+      setDpas(response.data.subunit.dpas);
     } catch (error) {
 
     }
@@ -42,6 +46,15 @@ const Dpa = props => {
 
   const handleSubunitChange = async (event) => {
     setSubunit(event.target.value);
+    const selected=event.target.value;
+    try {
+      const response = await api.get('subunits/' + selected.id);
+      console.log(response.data.subunit.dpas);
+     // setSubunits(response.data.subunits);
+      setDpas(response.data.subunit.dpas);
+    } catch (error) {
+
+    }
   }
 
   const handleTypeChange = async (event) => {
@@ -51,10 +64,8 @@ const Dpa = props => {
   const loadUnits = async () => {
     try {
       const response = await api.get('units');
-      console.log(response.data.units);
       setUnits(response.data.units);
     } catch (err) {
-      console.log(err);
     }
   }
 
@@ -156,6 +167,32 @@ const Dpa = props => {
         {
           Object.keys(subunit).length !== 0 &&
           <SubCard title="Daftar DPA" sx={{marginTop:'10px'}} secondary={<FormAction title="Tambah Unit" icon={<IconPlus />} handleClick={handleClick} open={open}/>}>
+            <TableContainer component={Paper}>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Tahun</TableCell>
+                    <TableCell>Tahapan</TableCell>
+                    <TableCell>No. DPA</TableCell>
+                    <TableCell>Jenis</TableCell>
+                    <TableCell>Total</TableCell>
+                    <TableCell>Total Setelah Perubahan</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {dpas.map((dpa) => (
+                    <TableRow key={dpa.id}>
+                      <TableCell>{dpa.tahun}</TableCell>
+                      <TableCell>{dpa.tahapan}</TableCell>
+                      <TableCell><Link to={`/dpa/${dpa.id}`}>{dpa.no_dpa}</Link></TableCell>
+                      <TableCell>{dpa.type}</TableCell>
+                      <TableCell>{dpa.total}</TableCell>
+                      <TableCell>{dpa.total_after}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
             <DpaForm open={open} handleClose={handleClose} afterSave={afterSave} subunit={subunit}/>
           </SubCard>
           

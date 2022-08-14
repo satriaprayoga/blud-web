@@ -28,6 +28,6 @@ class Subunit extends Model
     }
 
     public function dpas(){
-        return $this->hasMany(Dpa::class,'subunit_id');
+        return $this->hasMany(Dpa::class,'subunit_id','id');
     }
 }

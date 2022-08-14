@@ -18,10 +18,15 @@ class Dpa extends Model
         'total',
         'total_after',
         'aktif',
+        'kegiatan',
+        'kode_kegiatan',
+        'subkegiatan',
+        'kode_subkegiatan',
+        'kode_rekening',
         'subunit_id'
     ];
 
     public function subunit(){
-        $this->belongsTo(Subunit::class,'subunit_id');
+        return $this->belongsTo(Subunit::class,'subunit_id');
     }
 }
