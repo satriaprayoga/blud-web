@@ -32,6 +32,7 @@ Route::apiResource('apbd',ApbdController::class);
 
 Route::apiResource('dpa',DpaController::class);
 Route::get('/dpa/sub/{subunit_id}/type/{type?}',[DpaController::class,'subunitDpa']);
+Route::put('dpa/activate/{id}',[DpaController::class,'activate']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout',[AuthController::class,'logout']);

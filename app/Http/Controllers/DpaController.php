@@ -6,6 +6,7 @@ use App\Models\Dpa;
 use App\Models\Subunit;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class DpaController extends Controller
@@ -115,6 +116,16 @@ class DpaController extends Controller
         }
         $dpa->delete();
         return response()->json(['msg'=>'DPA berhasil dihapus']);
+    }
+
+    public function activate(Request $request,$id){
+        $next=Dpa::find($id);
+        if(DB::table('dpas')->where('aktif',true)->exists()){
+            $current=Dpa::where('aktif',true)->first();
+            $current->update(['aktif'=>false]);
+        }
+        $next->update(['aktif'=>$request->aktif]);
+        return response()->json(['dpa'=>$next]);
     }
 
     public function dpaValidator(Request $request)

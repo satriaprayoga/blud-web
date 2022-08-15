@@ -1,24 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useParams } from 'react-router'
-import { Button, Dialog, DialogActions, DialogContent, TextField } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, MenuItem, TextField } from '@mui/material';
 import { Field, Form, Formik } from 'formik'
 import MainCard from '../../../ui-component/cards/MainCard';
-import { object } from 'yup';
+import { number, object, string } from 'yup';
+import api from '../../../utils/api';
 
 const EditForm = ({open, initialValues, handleClose, afterSave}) => {
   const {id}=useParams();
 
   const handleSave=async(values)=>{
     try {
-      
+      const response=await api.put('dpa/'+id,values);
+      console.log(response.data.dpa);
     } catch (error) {
       
     }
     afterSave();
   }
   return (
-    <Dialog open={open} handleClose={handleClose}>
+    <Dialog open={open} onClose={handleClose}>
       <MainCard title="Edit DPA">
           <Formik initialValues={initialValues}
                   validationSchema={
