@@ -114,6 +114,9 @@ class DpaController extends Controller
         if($dpa==null){
             return response()->json(['message'=>'DPA tidak ditemukan'],404);
         }
+        if($dpa->aktif==true){
+            return response()->json(['message'=>'Harap non aktifkan DPA terlebih dahulu'],402);
+        }
         $dpa->delete();
         return response()->json(['msg'=>'DPA berhasil dihapus']);
     }

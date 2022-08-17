@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { IconEdit, IconTrash } from '@tabler/icons';
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, FormControl, FormControlLabel, FormGroup, Grid, Paper, Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, FormControlLabel, FormGroup, Grid, Paper, Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { Field, Form, Formik } from 'formik'
 import MainCard from '../../ui-component/cards/MainCard';
 import api from '../../utils/api';
@@ -28,7 +28,7 @@ const DpaDetails = props => {
   const [deleteOpen, setDeleteOpen] = useState(false);
 
   const [toggleActive, setToogleActive] = useState(false);
-  const [checked,setChecked]=useState(true);
+  const [checked, setChecked] = useState(true);
 
   const navigation = useNavigate();
 
@@ -52,15 +52,15 @@ const DpaDetails = props => {
     setToogleActive(!toggleActive);
   }
 
-  const handleAktifSwitch=()=>{
+  const handleAktifSwitch = () => {
     setChecked(!checked);
   }
 
-  const handleActivate= async ()=>{
+  const handleActivate = async () => {
     try {
-      const response=api.put('dpa/activate/'+id,{aktif:checked});
+      const response = api.put('dpa/activate/' + id, { aktif: checked });
     } catch (error) {
-      
+
     }
     setToogleActive(!toggleActive);
     loadDpa();
@@ -70,7 +70,7 @@ const DpaDetails = props => {
     try {
       const response = await api.get('dpa/' + id);
       setDpa(response.data.dpa);
-      setChecked(response.data.dpa.aktif==false?false:true);
+      setChecked(response.data.dpa.aktif == false ? false : true);
       setSubunit(response.data.subunit);
     } catch (error) {
 
@@ -164,36 +164,37 @@ const DpaDetails = props => {
 
         {
           toggleActive == true &&
-          <Grid container style={{ display: "flex", justifyContent: "center"}}>
+          <Grid container style={{ display: "flex", justifyContent: "center" }}>
             <SubCard title="Status DPA" >
               <Formik
                 initialValues={{
-                  aktif:checked
+                  aktif: checked
                 }}
-                onSubmit={(values,formikHelpers)=>{
+                onSubmit={(values, formikHelpers) => {
                   handleActivate();
-              }}>
-                  {({ errors, isValid, touched, dirty, values, setFieldValue, handleChange }) => (
-                    <Form>
-                      <FormControlLabel control={
-                        <Field 
-                          label="Aktif"
-                          name="aktif"
-                          component={Switch}
-                          onChange={handleAktifSwitch}
-                          checked={checked}/>
-                        }
-                        label="Aktif">
+                }}>
+                {({ errors, isValid, touched, dirty, values, setFieldValue, handleChange }) => (
+                  <Form>
+                    <FormControlLabel control={
+                      <Field
+                        label="Aktif"
+                        name="aktif"
+                        component={Switch}
+                        onChange={handleAktifSwitch}
+                        checked={checked} />
+                    }
+                      label="Aktif">
 
-                      </FormControlLabel>
-                      <FormControl>
+                    </FormControlLabel>
+                    <FormControl>
                       <Button type="submit" variant="contained" disabled={dirty}>Simpan</Button>
-                      </FormControl>
-                    </Form>
-                  )}
+                    </FormControl>
+                  </Form>
+                )}
               </Formik>
-             
+
             </SubCard>
+
 
           </Grid>
 
@@ -202,6 +203,20 @@ const DpaDetails = props => {
 
       </Grid>
       <EditForm open={openEdit} handleClose={handleEditClose} initialValues={dpa} afterSave={afterSave} />
+      <Dialog open={deleteOpen} onClose={handleDeleteClose}>
+        <DialogTitle>Hapus DPA</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Menghapus DPA {dpa.no_dpa}. Anda Yakin?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button>Ya, Hapus</Button>
+          <Button onClick={handleDeleteClose} autoFocus>
+            Batal
+          </Button>
+        </DialogActions>
+      </Dialog>
     </MainCard>
   )
 }
