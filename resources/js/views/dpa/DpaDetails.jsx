@@ -77,6 +77,15 @@ const DpaDetails = props => {
     }
   }
 
+  const handleDelete=async()=>{
+    try {
+      const response=await api.delete('dpa/'+id);
+      navigation('/dpa');
+    } catch (error) {
+      
+    }
+  }
+
   const afterSave = () => {
     loadDpa();
   }
@@ -211,7 +220,7 @@ const DpaDetails = props => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button>Ya, Hapus</Button>
+          <Button onClick={handleDelete}>Ya, Hapus</Button>
           <Button onClick={handleDeleteClose} autoFocus>
             Batal
           </Button>
