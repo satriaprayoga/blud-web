@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rbas', function (Blueprint $table) {
+        Schema::create('rba_rincis', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->string('tahapan')->default('M');
-            $table->float('total',15,2)->default(0.00);
-            $table->float('total_after',15,2)->default(0.00);
-            $table->foreignId('dpa_id')->constrained('dpas','id');
+            $table->string('uraian');
+            $table->float('unit');
+            $table->float('volume');
+            $table->float('total');
+            $table->string('satuan');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rbas');
+        Schema::dropIfExists('rba_rincis');
     }
 };

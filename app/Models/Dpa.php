@@ -29,4 +29,8 @@ class Dpa extends Model
     public function subunit(){
         return $this->belongsTo(Subunit::class,'subunit_id');
     }
+
+    public function rbas(){
+        return $this->hasMany(Rba::class,'dpa_id','id');
+    }
 }

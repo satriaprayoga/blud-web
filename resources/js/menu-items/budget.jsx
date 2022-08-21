@@ -29,32 +29,32 @@ const budget = {
             ]
         },
         {
-            id: 'rab',
-            title: 'RAB',
+            id: 'rba',
+            title: 'RBA',
             type: 'collapse',
             icon: icons.SourceOutlined,
             children: [
                 {
-                    id: 'rab_pendapatan',
+                    id: 'rba_pendapatan',
                     title: 'Pendapatan',
                     type:'item',
                     url: '/'
                 },
                 {
-                    id: 'rab_belanja',
+                    id: 'rba_belanja',
                     title: 'Belanja',
                     type:'item',
                     url: '/'
                 },
 
                 {
-                    id: 'rab_pembiayaan',
+                    id: 'rba_pembiayaan',
                     title: 'Pembiayaan',
                     type:'item',
                     url: '/'
                 },
                 {
-                    id: 'rab_pengesahan',
+                    id: 'rba_pengesahan',
                     title: 'Pengesahan',
                     type:'item',
                     url: '/'
