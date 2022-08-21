@@ -38,26 +38,26 @@ const budget = {
                     id: 'rba_pendapatan',
                     title: 'Pendapatan',
                     type:'item',
-                    url: '/'
+                    url: '/rba'
                 },
                 {
                     id: 'rba_belanja',
                     title: 'Belanja',
                     type:'item',
-                    url: '/'
+                    url: '/rba'
                 },
 
                 {
                     id: 'rba_pembiayaan',
                     title: 'Pembiayaan',
                     type:'item',
-                    url: '/'
+                    url: '/rba'
                 },
                 {
                     id: 'rba_pengesahan',
                     title: 'Pengesahan',
                     type:'item',
-                    url: '/'
+                    url: '/rba'
                 }
             ]
 

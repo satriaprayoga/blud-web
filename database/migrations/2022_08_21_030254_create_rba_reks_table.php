@@ -28,6 +28,8 @@ return new class extends Migration
             $table->float('total',15,2)->default(0.00);
             $table->float('total_after',15,2)->default(0.00);
             $table->string('tahapan')->default('M');
+            $table->string('opr');
+            $table->string('kode_opr');
             $table->foreignId('rba_id')->constrained('rbas','id');
             $table->timestamps();
         });

@@ -31,6 +31,6 @@ class Dpa extends Model
     }
 
     public function rbas(){
-        return $this->hasMany(Rba::class,'dpa_id','id');
+        return $this->hasOne(Rba::class,'dpa_id','id');
     }
 }
