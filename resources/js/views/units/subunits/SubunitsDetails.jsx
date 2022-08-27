@@ -9,7 +9,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Grid }
 import MuiTypography from '@mui/material/Typography';
 import SubCard from '../../../ui-component/cards/SubCard';
 import FormAction from '../../../ui-component/cards/FormAction';
-import { IconEdit, IconTrash } from '@tabler/icons';
+import { IconEdit, IconTrash, IconPlus } from '@tabler/icons';
 import EditForm from './forms/EditForm';
 
 const SubunitsDetails = props => {
@@ -132,7 +132,14 @@ const SubunitsDetails = props => {
                 </SubCard>
             </Grid>
         </Grid>
+        <SubCard title="Unit Operasional" 
+          secondary={<FormAction 
+            title='Tambah Unit Operasional'
+            icon={<IconPlus/>}/>}>
+
+        </SubCard>
     </MainCard>
+   
     <EditForm open={open} handleClose={handleClose} initialValues={subunit} afterSave={loadSubunit}/>
     <Dialog open={deleteOpen}>
       <MainCard title="Hapus Unit">

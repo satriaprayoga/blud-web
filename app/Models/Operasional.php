@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Operasional extends Model
 {
     use HasFactory;
+
+    protected $fillable=[
+        'name',
+        'kode',
+        'type',
+        'pendapatan',
+        'subunit_id'
+    ];
 }

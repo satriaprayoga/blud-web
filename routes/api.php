@@ -4,9 +4,9 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ApbdController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DpaController;
+use App\Http\Controllers\OperasionalController;
 use App\Http\Controllers\SubunitController;
 use App\Http\Controllers\UnitController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,11 +28,17 @@ Route::get('/accounts/group/{group}/type/{type?}',[AccountController::class,'gro
 
 Route::apiResource('units',UnitController::class);
 Route::apiResource('subunits',SubunitController::class);
-Route::apiResource('apbd',ApbdController::class);
+Route::apiResource('operasionals',OperasionalController::class);
 
+
+Route::apiResource('apbd',ApbdController::class);
 Route::apiResource('dpa',DpaController::class);
+
 Route::get('/dpa/sub/{subunit_id}/type/{type?}',[DpaController::class,'subunitDpa']);
-Route::put('dpa/activate/{id}',[DpaController::class,'activate']);
+Route::put('/dpa/activate/{id}',[DpaController::class,'activate']);
+
+Route::get('/operasionals/subunit/{subunit_id}',[OperasionalController::class,'oprSubunit']);
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout',[AuthController::class,'logout']);
