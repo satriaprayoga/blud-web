@@ -20,7 +20,11 @@ const OperasionalForm = ({ open, handleClose, initialValues }) => {
                         pendapatan: bool().required("Opsi pendapatan harus diisi").default(false)
                     })}
                 >
-
+                    {({errors, isValid, touched, dirty, values, setFieldValue, handleChange})=>(
+                        <Form>
+                            
+                        </Form>
+                    )}
                 </Formik>
         </Dialog>
     )
